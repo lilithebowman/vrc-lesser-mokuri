@@ -543,7 +543,7 @@ PlayerSettings:
   webGLLinkerTarget: 1
   webGLThreadsSupport: 0
   scriptingDefineSymbols:
-    1: VRC_SDK_VRCSDK3
+    1: VRC_SDK_VRCSDK3;NET_SET_TWO_POINT_ZERO;MCS_EXISTS;VRC_SDK_EXISTS
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}
