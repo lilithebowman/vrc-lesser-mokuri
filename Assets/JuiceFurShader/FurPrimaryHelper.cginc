@@ -26,6 +26,8 @@ sampler2D _MainTexPrimary;
 half4 _MainTexPrimary_ST;
 sampler2D _FurTexPrimary;
 half4 _FurTexPrimary_ST;
+sampler2D _FurHeightPrimary;
+half4 _FurHeightPrimary_ST;
 
 fixed _FurLengthPrimary;
 fixed _FurDensityPrimary;
@@ -67,6 +69,7 @@ fixed3 conv(fixed3 clr)
 v2f vert_surface(appdata_base v)
 {
     v2f o;
+	UNITY_INITIALIZE_OUTPUT(v2f, o);
     o.pos = UnityObjectToClipPos(v.vertex);
     o.uv.xy = TRANSFORM_TEX(v.texcoord, _MainTexPrimary);
     o.worldNormal = UnityObjectToWorldNormal(v.normal);
@@ -81,7 +84,7 @@ v2f vert_base(appdata_base v)
     float3 P = v.vertex.xyz + v.normal * _FurLengthPrimary * FURSTEP;
     o.pos = UnityObjectToClipPos(float4(P, 1.0));
     o.uv.xy = TRANSFORM_TEX(v.texcoord, _MainTexPrimary );
-    o.uv.zw = TRANSFORM_TEX(v.texcoord, _FurTexPrimary );
+	o.uv.zw = TRANSFORM_TEX(v.texcoord, _FurTexPrimary) * TRANSFORM_TEX(v.texcoord, _FurHeightPrimary);
     o.worldNormal = UnityObjectToWorldNormal(v.normal);
     o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 

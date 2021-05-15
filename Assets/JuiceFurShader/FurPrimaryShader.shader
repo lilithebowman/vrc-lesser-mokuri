@@ -15,6 +15,7 @@ Shader "Fur/FurShader"
 		
         _MainTexPrimary ("Texture", 2D) = "white" { }
         _FurTexPrimary ("Fur Pattern", 2D) = "white" { }
+		_FurHeightPrimary("Fur Height", 2D) = "white" { }
         
         _FurLengthPrimary ("Fur Length", Range(0.0, 1)) = 0.5
         _FurDensityPrimary ("Fur Density", Range(0, 2)) = 0.11
