@@ -8,9 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: h_props_BaseColor
-  m_Shader: {fileID: 4800000, guid: 5f1134ac3f3dbe740b62f46b7c245de4, type: 3}
-  m_ShaderKeywords: _EMISSIVE_SIMPLE _MATCAPBLENDMODE_ADD _NORMALMAP _OUTLINE_NML
-    _SHADOWCAPBLENDMODE_DARKEN
+  m_Shader: {fileID: 4800000, guid: 3d24dbdc8379bac44a1ef1bd03ebcde5, type: 3}
+  m_ShaderKeywords: _EMISSIVE_SIMPLE _MATCAPBLENDMODE_ADD _METALLICGLOSSMAP _NORMALMAP
+    _OUTLINE_NML _SHADOWCAPBLENDMODE_DARKEN
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -57,15 +57,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ClearCoatMask:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3856992b1f365f54eb41af5b8b931e1c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ClearCoatSmoothnessMask:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3856992b1f365f54eb41af5b8b931e1c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CubeMap:
-        m_Texture: {fileID: 8900000, guid: a0fde614a95c2d44ca3dec1fba756a6f, type: 3}
+        m_Texture: {fileID: 8900000, guid: 483cbd769cbcb1546a37927ea2bfb608, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -173,7 +173,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicMask:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3856992b1f365f54eb41af5b8b931e1c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MirrorTexture:
@@ -309,7 +309,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SmoothnessMask:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 3856992b1f365f54eb41af5b8b931e1c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularMap:
@@ -402,7 +402,7 @@ Material:
     - _EnableFlipbook: 0
     - _EnableGITDEmission: 0
     - _EnableLighting: 1
-    - _EnableMetallic: 0
+    - _EnableMetallic: 1
     - _EnableMirrorOptions: 0
     - _EnableMirrorTexture: 0
     - _EnableRandom: 0
@@ -492,7 +492,7 @@ Material:
     - _MatcapNormalMix: 1
     - _MatcapReplace: 1
     - _MatcapShadeMix: 0
-    - _Metallic: 1
+    - _Metallic: 0.75
     - _Mirror: 0
     - _Mode: 0
     - _ModelAngleMax: 90
