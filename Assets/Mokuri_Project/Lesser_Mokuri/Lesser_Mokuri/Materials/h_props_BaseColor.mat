@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: h_props_BaseColor
-  m_Shader: {fileID: 4800000, guid: f8c1f8ac363df824899534a0b30eef00, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5f1134ac3f3dbe740b62f46b7c245de4, type: 3}
   m_ShaderKeywords: _EMISSIVE_SIMPLE _MATCAPBLENDMODE_ADD _NORMALMAP _OUTLINE_NML
     _SHADOWCAPBLENDMODE_DARKEN
   m_LightmapFlags: 4
@@ -192,7 +192,15 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _OutlineMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OutlineTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OutlineTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -460,6 +468,7 @@ Material:
     - _LightDirection_MaskOn: 0
     - _LightingAOUV: 0
     - _LightingType: 1
+    - _LineWidth: 0
     - _MainAlphaToCoverage: 1
     - _MainEmissionStrength: 0
     - _MainMinAlpha: 0
@@ -494,7 +503,18 @@ Material:
     - _Offset_X_Axis_BLD: -0.05
     - _Offset_Y_Axis_BLD: 0.09
     - _Offset_Z: 0
+    - _OutlineCull: 1
+    - _OutlineEmission: 0
+    - _OutlineMode: 0
+    - _OutlineRimLightBlend: 0
+    - _OutlineShadowStrength: 1
+    - _OutlineStencilCompareFunction: 8
+    - _OutlineStencilFailOp: 0
+    - _OutlineStencilPassOp: 0
+    - _OutlineStencilRef: 0
+    - _OutlineStencilZFailOp: 0
     - _OutlineTextureColorRate: 0.05
+    - _OutlineUseVertexColors: 0
     - _OutlineWidth: 0.0005
     - _Outline_Width: 0
     - _PanoBlend: 0
@@ -629,6 +649,7 @@ Material:
     - m_end_DetailOptions: 0
     - m_end_Fade: 0
     - m_end_Matcap2: 0
+    - m_end_OutlineStencil: 0
     - m_end_ShadowMix: 0
     - m_end_SpecularToon: 0
     - m_end_blinkingEmissionOptions: 0
@@ -636,6 +657,7 @@ Material:
     - m_end_glowInDarkEmissionOptions: 0
     - m_end_lightingAdvanced: 0
     - m_end_manualFlipbookControl: 0
+    - m_end_outlineAdvanced: 0
     - m_end_parallaxHeightmap: 0
     - m_end_parallaxInternal: 0
     - m_end_pointToPoint: 0
@@ -648,6 +670,7 @@ Material:
     - m_matcapOptions: 0
     - m_metallicOptions: 0
     - m_mirrorOptions: 0
+    - m_outlineOptions: 0
     - m_panosphereOptions: 0
     - m_parallaxMap: 0
     - m_renderingOptions: 0
@@ -659,6 +682,7 @@ Material:
     - m_start_DetailOptions: 0
     - m_start_Fade: 0
     - m_start_Matcap2: 0
+    - m_start_OutlineStencil: 0
     - m_start_ShadowMix: 0
     - m_start_SpecularToon: 0
     - m_start_blinkingEmissionOptions: 0
@@ -666,6 +690,7 @@ Material:
     - m_start_glowInDarkEmissionOptions: 0
     - m_start_lightingAdvanced: 0
     - m_start_manualFlipbookControl: 0
+    - m_start_outlineAdvanced: 0
     - m_start_parallaxHeightmap: 0
     - m_start_parallaxInternal: 0
     - m_start_pointToPoint: 0
@@ -703,6 +728,7 @@ Material:
     - _GlobalPanSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _GlossColor: {r: 1, g: 1, b: 1, a: 1}
     - _HighColor: {r: 0, g: 0, b: 0, a: 1}
+    - _LineColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainDetailNormalPan: {r: 0, g: 0, b: 0, a: 0}
     - _MainDistanceFade: {r: 0, g: 0, b: 0, a: 0}
     - _MainNormalPan: {r: 0, g: 0, b: 0, a: 0}
@@ -711,6 +737,10 @@ Material:
     - _MatcapColor: {r: 1, g: 1, b: 1, a: 1}
     - _MetalReflectionTint: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineDropShadowOffset: {r: 1, g: 0, b: 0, a: 0}
+    - _OutlineFadeDistance: {r: 0, g: 0, b: 0, a: 0}
+    - _OutlinePersonaDirection: {r: 1, g: 0, b: 0, a: 0}
+    - _OutlineTexturePan: {r: 0, g: 0, b: 0, a: 0}
     - _Outline_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _PanosphereColor: {r: 1, g: 1, b: 1, a: 1}
     - _PanospherePan: {r: 0, g: 0, b: 0, a: 0}

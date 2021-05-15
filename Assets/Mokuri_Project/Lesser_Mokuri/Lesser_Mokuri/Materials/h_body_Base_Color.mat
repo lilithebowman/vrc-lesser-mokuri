@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: h_body_Base_Color
-  m_Shader: {fileID: 4800000, guid: f8c1f8ac363df824899534a0b30eef00, type: 3}
+  m_Shader: {fileID: 4800000, guid: 20b8f2663d22ce445950e8b2db4801df, type: 3}
   m_ShaderKeywords: _EMISSIVE_SIMPLE _MATCAPBLENDMODE_ADD _NORMALMAP _OUTLINE_NML
     _SHADOWCAPBLENDMODE_DARKEN
   m_LightmapFlags: 4
@@ -120,6 +120,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _FurTexPrimary:
+        m_Texture: {fileID: 2800000, guid: 272873f73f46b754e9bccd51a2055154, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _GlossBlendMask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -137,6 +141,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 907c63c880e0ad842a47d5071e06326b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTexPrimary:
         m_Texture: {fileID: 2800000, guid: 907c63c880e0ad842a47d5071e06326b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -192,7 +200,15 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _OutlineMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OutlineTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OutlineTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -379,6 +395,7 @@ Material:
     - _DissolveType: 1
     - _DstBlend: 0
     - _EMISSIVE: 0
+    - _EmissionPrimary: 0.2
     - _EmissionStrength: 0
     - _EmissionUV: 0
     - _EmissiveBlink_Max: 1
@@ -413,6 +430,10 @@ Material:
     - _FlipbookTotalFrames: 1
     - _FlipbookUV: 0
     - _ForceOpaque: 0
+    - _FurDensityPrimary: 0.248
+    - _FurLengthPrimary: 0.123
+    - _FurShadingPrimary: 0.25
+    - _FurThinnessPrimary: 0.7
     - _GITDEMaxEmissionMultiplier: 0
     - _GITDEMaxLight: 1
     - _GITDEMinEmissionMultiplier: 1
@@ -425,6 +446,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _HighColor_Power: 0
+    - _HuePrimary: 0
     - _IndirectContribution: 0
     - _Inverse_MatcapMask: 0
     - _Inverse_Z_Axis_BLD: 1
@@ -460,6 +482,7 @@ Material:
     - _LightDirection_MaskOn: 0
     - _LightingAOUV: 0
     - _LightingType: 1
+    - _LineWidth: 0
     - _MainAlphaToCoverage: 1
     - _MainEmissionStrength: 0
     - _MainMinAlpha: 0
@@ -494,7 +517,18 @@ Material:
     - _Offset_X_Axis_BLD: -0.05
     - _Offset_Y_Axis_BLD: 0.09
     - _Offset_Z: 0
+    - _OutlineCull: 1
+    - _OutlineEmission: 0
+    - _OutlineMode: 0
+    - _OutlineRimLightBlend: 0
+    - _OutlineShadowStrength: 1
+    - _OutlineStencilCompareFunction: 8
+    - _OutlineStencilFailOp: 0
+    - _OutlineStencilPassOp: 0
+    - _OutlineStencilRef: 0
+    - _OutlineStencilZFailOp: 0
     - _OutlineTextureColorRate: 0.05
+    - _OutlineUseVertexColors: 0
     - _OutlineWidth: 0.0005
     - _Outline_Width: 0
     - _PanoBlend: 0
@@ -547,6 +581,7 @@ Material:
     - _SSSSCale: 0
     - _SSSThicknessMod: 0
     - _SampleWorld: 0
+    - _SatPrimary: 1
     - _Saturation: 0
     - _Scroll_EmissiveU: 0
     - _Scroll_EmissiveV: 0
@@ -572,6 +607,7 @@ Material:
     - _ShadowborderMax: 0.55
     - _ShadowborderMin: 0.499
     - _Shininess: 0.078125
+    - _ShininessPrimary: 97
     - _Smoothness: 0
     - _SmoothnessFrom: 1
     - _SmoothnessTextureChannel: 0
@@ -581,6 +617,7 @@ Material:
     - _SpecularHighlights: 1
     - _SpecularInvertSmoothness: 0
     - _SpecularMixAlbedoIntoTint: 0
+    - _SpecularPrimary: 1.32
     - _SpecularSmoothness: 1
     - _SpecularType: 1
     - _SrcBlend: 1
@@ -630,6 +667,7 @@ Material:
     - m_end_DetailOptions: 0
     - m_end_Fade: 0
     - m_end_Matcap2: 0
+    - m_end_OutlineStencil: 0
     - m_end_ShadowMix: 0
     - m_end_SpecularToon: 0
     - m_end_blinkingEmissionOptions: 0
@@ -637,6 +675,7 @@ Material:
     - m_end_glowInDarkEmissionOptions: 0
     - m_end_lightingAdvanced: 0
     - m_end_manualFlipbookControl: 0
+    - m_end_outlineAdvanced: 0
     - m_end_parallaxHeightmap: 0
     - m_end_parallaxInternal: 0
     - m_end_pointToPoint: 0
@@ -649,6 +688,7 @@ Material:
     - m_matcapOptions: 0
     - m_metallicOptions: 0
     - m_mirrorOptions: 0
+    - m_outlineOptions: 0
     - m_panosphereOptions: 0
     - m_parallaxMap: 0
     - m_renderingOptions: 0
@@ -660,6 +700,7 @@ Material:
     - m_start_DetailOptions: 0
     - m_start_Fade: 0
     - m_start_Matcap2: 0
+    - m_start_OutlineStencil: 0
     - m_start_ShadowMix: 0
     - m_start_SpecularToon: 0
     - m_start_blinkingEmissionOptions: 0
@@ -667,6 +708,7 @@ Material:
     - m_start_glowInDarkEmissionOptions: 0
     - m_start_lightingAdvanced: 0
     - m_start_manualFlipbookControl: 0
+    - m_start_outlineAdvanced: 0
     - m_start_parallaxHeightmap: 0
     - m_start_parallaxInternal: 0
     - m_start_pointToPoint: 0
@@ -686,6 +728,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _ClearCoatTint: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorPrimary: {r: 1, g: 1, b: 1, a: 1}
     - _ColorShift: {r: 0, g: 0, b: 0, a: 1}
     - _DetailTexturePan: {r: 0, g: 0, b: 0, a: 0}
     - _DetailTint: {r: 1, g: 1, b: 1, a: 1}
@@ -704,6 +747,7 @@ Material:
     - _GlobalPanSpeed: {r: 0, g: 0, b: 0, a: 0}
     - _GlossColor: {r: 1, g: 1, b: 1, a: 1}
     - _HighColor: {r: 0, g: 0, b: 0, a: 1}
+    - _LineColor: {r: 1, g: 1, b: 1, a: 1}
     - _MainDetailNormalPan: {r: 0, g: 0, b: 0, a: 0}
     - _MainDistanceFade: {r: 0, g: 0, b: 0, a: 0}
     - _MainNormalPan: {r: 0, g: 0, b: 0, a: 0}
@@ -712,6 +756,10 @@ Material:
     - _MatcapColor: {r: 1, g: 1, b: 1, a: 1}
     - _MetalReflectionTint: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
+    - _OutlineDropShadowOffset: {r: 1, g: 0, b: 0, a: 0}
+    - _OutlineFadeDistance: {r: 0, g: 0, b: 0, a: 0}
+    - _OutlinePersonaDirection: {r: 1, g: 0, b: 0, a: 0}
+    - _OutlineTexturePan: {r: 0, g: 0, b: 0, a: 0}
     - _Outline_Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _PanosphereColor: {r: 1, g: 1, b: 1, a: 1}
     - _PanospherePan: {r: 0, g: 0, b: 0, a: 0}
