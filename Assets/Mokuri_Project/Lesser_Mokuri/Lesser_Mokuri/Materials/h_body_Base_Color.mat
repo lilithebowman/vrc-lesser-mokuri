@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: h_body_Base_Color
-  m_Shader: {fileID: 4800000, guid: 20b8f2663d22ce445950e8b2db4801df, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5f1134ac3f3dbe740b62f46b7c245de4, type: 3}
   m_ShaderKeywords: _EMISSIVE_SIMPLE _MATCAPBLENDMODE_ADD _NORMALMAP _OUTLINE_NML
     _SHADOWCAPBLENDMODE_DARKEN
   m_LightmapFlags: 4
