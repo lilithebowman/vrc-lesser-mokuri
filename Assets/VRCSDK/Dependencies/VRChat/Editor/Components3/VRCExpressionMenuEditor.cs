@@ -169,8 +169,8 @@ public class VRCExpressionsMenuEditor : Editor
 						subParameters.arraySize = 2;
 						labels.arraySize = 4;
 
-						DrawParameterDropDown(subParameters.GetArrayElementAtIndex(0), "Parameter Horizontal");
-						DrawParameterDropDown(subParameters.GetArrayElementAtIndex(1), "Parameter Vertical");
+						DrawParameterDropDown(subParameters.GetArrayElementAtIndex(0), "Parameter Horizontal", false);
+						DrawParameterDropDown(subParameters.GetArrayElementAtIndex(1), "Parameter Vertical", false);
 
 						DrawLabel(labels.GetArrayElementAtIndex(0), "Label Up");
 						DrawLabel(labels.GetArrayElementAtIndex(1), "Label Right");
@@ -181,10 +181,10 @@ public class VRCExpressionsMenuEditor : Editor
 						subParameters.arraySize = 4;
 						labels.arraySize = 4;
 
-						DrawParameterDropDown(subParameters.GetArrayElementAtIndex(0), "Parameter Up");
-						DrawParameterDropDown(subParameters.GetArrayElementAtIndex(1), "Parameter Right");
-						DrawParameterDropDown(subParameters.GetArrayElementAtIndex(2), "Parameter Down");
-						DrawParameterDropDown(subParameters.GetArrayElementAtIndex(3), "Parameter Left");
+						DrawParameterDropDown(subParameters.GetArrayElementAtIndex(0), "Parameter Up", false);
+						DrawParameterDropDown(subParameters.GetArrayElementAtIndex(1), "Parameter Right", false);
+						DrawParameterDropDown(subParameters.GetArrayElementAtIndex(2), "Parameter Down", false);
+						DrawParameterDropDown(subParameters.GetArrayElementAtIndex(3), "Parameter Left", false);
 
 						DrawLabel(labels.GetArrayElementAtIndex(0), "Label Up");
 						DrawLabel(labels.GetArrayElementAtIndex(1), "Label Right");
@@ -195,7 +195,7 @@ public class VRCExpressionsMenuEditor : Editor
 						subParameters.arraySize = 1;
 						labels.arraySize = 0;
 
-						DrawParameterDropDown(subParameters.GetArrayElementAtIndex(0), "Paramater Rotation");
+						DrawParameterDropDown(subParameters.GetArrayElementAtIndex(0), "Paramater Rotation", false);
 						break;
 					default:
 						subParameters.arraySize = 0;
@@ -232,28 +232,8 @@ public class VRCExpressionsMenuEditor : Editor
 		GUILayout.EndHorizontal();
 	}
 
-	static string[] ParameterNames =
-	{
-		"[None]",
-		"Stage1",
-		"Stage2",
-		"Stage3",
-		"Stage4",
-		"Stage5",
-		"Stage6",
-		"Stage7",
-		"Stage8",
-		"Stage9",
-		"Stage10",
-		"Stage11",
-		"Stage12",
-		"Stage13",
-		"Stage14",
-		"Stage15",
-		"Stage16",
-	};
-
 	VRC.SDK3.Avatars.Components.VRCAvatarDescriptor activeDescriptor = null;
+	string[] parameterNames;
 	void SelectAvatarDescriptor()
 	{
 		var descriptors = GameObject.FindObjectsOfType<VRC.SDK3.Avatars.Components.VRCAvatarDescriptor>();
@@ -284,22 +264,21 @@ public class VRCExpressionsMenuEditor : Editor
 		if(activeDescriptor != null)
 		{
 			//Init stage parameters
-			for (int i = 0; i < 16; i++)
-				InitStage(i);
-			void InitStage(int i)
+			int paramCount = desc.GetExpressionParameterCount();
+			parameterNames = new string[paramCount + 1];
+			parameterNames[0] = "[None]";
+			for (int i = 0; i < paramCount; i++)
 			{
 				var param = desc.GetExpressionParameter(i);
 				string name = "[None]";
 				if (param != null && !string.IsNullOrEmpty(param.name))
 					name = string.Format("{0}, {1}", param.name, param.valueType.ToString(), i + 1);
-				ParameterNames[i + 1] = name;
+				parameterNames[i + 1] = name;
 			}
 		}
 		else
 		{
-			//Clear
-			for(int i=0; i<16; i++)
-				ParameterNames[i+1] = "[None]";
+			parameterNames = null;
 		}
 	}
 	int GetExpressionParametersCount()
@@ -314,9 +293,10 @@ public class VRCExpressionsMenuEditor : Editor
 			return activeDescriptor.GetExpressionParameter(i);
 		return null;
 	}
-	void DrawParameterDropDown(SerializedProperty parameter, string name)
+	void DrawParameterDropDown(SerializedProperty parameter, string name, bool allowBool=true)
 	{
 		var parameterName = parameter.FindPropertyRelative("name");
+		VRCExpressionParameters.Parameter param = null;
 		string value = parameterName.stringValue;
 
 		bool parameterFound = false;
@@ -339,6 +319,7 @@ public class VRCExpressionsMenuEditor : Editor
 						var item = activeDescriptor.GetExpressionParameter(i);
 						if (item.name == value)
 						{
+							param = item;
 							parameterFound = true;
 							currentIndex = i;
 							break;
@@ -348,7 +329,7 @@ public class VRCExpressionsMenuEditor : Editor
 
 				//Dropdown
 				EditorGUI.BeginChangeCheck();
-				currentIndex = EditorGUILayout.Popup(name, currentIndex + 1, ParameterNames);
+				currentIndex = EditorGUILayout.Popup(name, currentIndex + 1, parameterNames);
 				if (EditorGUI.EndChangeCheck())
 				{
 					if (currentIndex == 0)
@@ -373,6 +354,11 @@ public class VRCExpressionsMenuEditor : Editor
 		{
 			EditorGUILayout.HelpBox("Parameter not found on the active avatar descriptor.", MessageType.Warning);
 		}
+
+		if(!allowBool && param != null && param.valueType == ExpressionParameters.ValueType.Bool)
+		{
+			EditorGUILayout.HelpBox("Bool parameters not valid for this choice.", MessageType.Error);
+		}
 	}
 	void DrawParameterValue(SerializedProperty parameter, SerializedProperty value)
 	{
@@ -382,13 +368,17 @@ public class VRCExpressionsMenuEditor : Editor
 			var paramDef = FindExpressionParameterDef(paramName);
 			if (paramDef != null)
 			{
-				if (paramDef.valueType == VRC.SDK3.Avatars.ScriptableObjects.VRCExpressionParameters.ValueType.Int)
+				if (paramDef.valueType == ExpressionParameters.ValueType.Int)
 				{
 					value.floatValue = EditorGUILayout.IntField("Value", Mathf.Clamp((int)value.floatValue, 0, 255));
 				}
-				else if (paramDef.valueType == VRC.SDK3.Avatars.ScriptableObjects.VRCExpressionParameters.ValueType.Float)
+				else if (paramDef.valueType == ExpressionParameters.ValueType.Float)
 				{
 					value.floatValue = EditorGUILayout.FloatField("Value", Mathf.Clamp(value.floatValue, -1f, 1f));
+				}
+				else if(paramDef.valueType == ExpressionParameters.ValueType.Bool)
+				{
+					value.floatValue = 1f;
 				}
 			}
 			else

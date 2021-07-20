@@ -5,7 +5,6 @@ using VRC.SDK3.Avatars.Components;
 using static VRC.SDKBase.VRC_AvatarParameterDriver;
 using Boo.Lang;
 using System;
-using System.Linq;
 
 [CustomEditor(typeof(VRCAvatarParameterDriver))]
 public class AvatarParameterDriverEditor : Editor
@@ -13,6 +12,12 @@ public class AvatarParameterDriverEditor : Editor
 	VRCAvatarParameterDriver driver;
 	string[] parameterNames;
 	AnimatorControllerParameterType[] parameterTypes;
+
+	enum ChangeTypeBool
+	{
+		Set = 0,
+		Random = 2,
+	}
 
 	public void OnEnable()
 	{
@@ -52,12 +57,26 @@ public class AvatarParameterDriverEditor : Editor
 
 	public override void OnInspectorGUI()
 	{
+		EditorGUI.BeginChangeCheck();
 		serializedObject.Update();
 		var driver = target as VRCAvatarParameterDriver;
 
 		//Info
-		EditorGUILayout.HelpBox("Use this behaviour to drive any parameter defined on this animation controller.  This change affects all animation controllers defined on the avatar descriptor.", MessageType.Info);
+		EditorGUILayout.HelpBox("This behaviour modifies parameters on this and all other animation controllers referenced on the avatar descriptor.", MessageType.Info);
 		EditorGUILayout.HelpBox("You should primarily be driving expression parameters as they are the only variables that sync across the network. Changes to any other parameter will not be synced across the network.", MessageType.Info);
+
+		//Data
+		driver.localOnly = EditorGUILayout.Toggle("Local Only", driver.localOnly);
+
+		//Check for info message
+		bool usesAddOrRandom = false;
+		foreach(var param in driver.parameters)
+		{
+			if (param.type != ChangeType.Set)
+				usesAddOrRandom = true;
+		}
+		if(usesAddOrRandom && !driver.localOnly)
+			EditorGUILayout.HelpBox("Using Add & Random may not produce the same result when run on remote instance of the avatar.  When using these modes it's suggested you use a synced parameter and use the local only option.", MessageType.Warning);
 
 		//Parameters
 		for (int i = 0; i < driver.parameters.Count; i++)
@@ -68,41 +87,86 @@ public class AvatarParameterDriverEditor : Editor
 				var index = IndexOf(parameterNames, param.name);
 
 				//Name
+				EditorGUILayout.BeginHorizontal();
+				EditorGUILayout.LabelField("Name");
 				if (parameterNames != null)
 				{
 					EditorGUI.BeginChangeCheck();
-					index = EditorGUILayout.Popup("Name", index, parameterNames);
+					index = EditorGUILayout.Popup(index, parameterNames);
 					if (EditorGUI.EndChangeCheck() && index >= 0)
 						param.name = parameterNames[index];
 				}
-				else
-					EditorGUILayout.LabelField("Name");
-				param.name = EditorGUILayout.TextField(" ", param.name);
+				param.name = EditorGUILayout.TextField(param.name);
+				EditorGUILayout.EndHorizontal();
 
 				//Value
 				if (index >= 0)
 				{
 					var type = parameterTypes[index];
-					switch(type)
+					if (type == AnimatorControllerParameterType.Int)
 					{
-						case AnimatorControllerParameterType.Int:
+						//Type
+						param.type = (VRCAvatarParameterDriver.ChangeType)EditorGUILayout.EnumPopup("Change Type", param.type);
+
+						//Value
+						if (param.type == ChangeType.Set)
 							param.value = Mathf.Clamp(EditorGUILayout.IntField("Value", (int)param.value), 0, 255);
-							break;
-						case AnimatorControllerParameterType.Float:
+						else if (param.type == ChangeType.Add)
+							param.value = Mathf.Clamp(EditorGUILayout.IntField("Value", (int)param.value), -255, 255);
+						else if (param.type == ChangeType.Random)
+						{
+							param.valueMin = Mathf.Clamp(EditorGUILayout.IntField("Min Value", (int)param.valueMin), 0, 255);
+							param.valueMax = Mathf.Clamp(EditorGUILayout.IntField("Max Value", (int)param.valueMax), param.valueMin, 255);
+						}
+					}
+					else if (type == AnimatorControllerParameterType.Float)
+					{
+						//Type
+						param.type = (VRCAvatarParameterDriver.ChangeType)EditorGUILayout.EnumPopup("Change Type", param.type);
+
+						//Value
+						if (param.type == ChangeType.Set || param.type == ChangeType.Add)
 							param.value = Mathf.Clamp(EditorGUILayout.FloatField("Value", param.value), -1f, 1);
-							break;
-						case AnimatorControllerParameterType.Bool:
+						else if (param.type == ChangeType.Random)
+						{
+							param.valueMin = Mathf.Clamp(EditorGUILayout.FloatField("Min Value", param.valueMin), -1f, 1);
+							param.valueMax = Mathf.Clamp(EditorGUILayout.FloatField("Max Value", param.valueMax), param.valueMin, 1);
+						}
+					}
+					else if (type == AnimatorControllerParameterType.Bool)
+					{
+						//Type
+						param.type = (VRCAvatarParameterDriver.ChangeType)EditorGUILayout.EnumPopup("Change Type", (ChangeTypeBool)param.type);
+
+						//Value
+						if (param.type == ChangeType.Set)
 							param.value = EditorGUILayout.Toggle("Value", param.value != 0) ? 1f : 0f;
-							break;
-						case AnimatorControllerParameterType.Trigger:
-							//Nothing
-							break;
+						else
+							param.chance = Mathf.Clamp(EditorGUILayout.FloatField("Chance", param.chance), 0f, 1f);
+					}
+					else if (type == AnimatorControllerParameterType.Trigger)
+					{
+						//Type
+						param.type = (VRCAvatarParameterDriver.ChangeType)EditorGUILayout.EnumPopup("Change Type", (ChangeTypeBool)param.type);
+
+						//Chance
+						if (param.type == ChangeType.Random)
+							param.chance = Mathf.Clamp(EditorGUILayout.FloatField("Chance", param.chance), 0f, 1f);
 					}
 				}
 				else
 				{
 					EditorGUI.BeginDisabledGroup(true);
-					param.value = EditorGUILayout.FloatField("Value", param.value);
+					EditorGUILayout.EnumPopup(param.type);
+					if(param.type == ChangeType.Random)
+					{
+						EditorGUILayout.FloatField("Min Value", param.valueMin);
+						EditorGUILayout.FloatField("Max Value", param.valueMax);
+					}
+					else
+					{
+						EditorGUILayout.FloatField("Value", param.value);
+					}
 					EditorGUI.EndDisabledGroup();
 					DrawInfoBox("WARNING: Parameter not found. Make sure you defined it on the animation controller.");
 				}
@@ -148,91 +212,10 @@ public class AvatarParameterDriverEditor : Editor
 			EditorGUI.indentLevel -= 2;
 		}
 
+		//End
 		serializedObject.ApplyModifiedProperties();
+		if (EditorGUI.EndChangeCheck())
+			EditorUtility.SetDirty(this);
 	}
-
-	/*public override void OnInspectorGUI()
-    {
-        serializedObject.Update();
-
-        EditorGUI.indentLevel++;
-
-        bool dirtyi = false;
-        bool dirtyf = false;
-        var oldParam = driver.driveParam;
-        driver.driveParam = (DriveableAvatarParameter)EditorGUILayout.IntPopup("Parameter", (int)driver.driveParam, parameterNames, parameterValues);
-
-        if (oldParam != driver.driveParam)
-        { 
-            if (GetDriverType(oldParam) == DriverType.GESTURE)
-                dirtyi = true;
-            else if (GetDriverType(oldParam) == DriverType.CLAMP01_FLOAT)
-                dirtyf = true;
-        }
-
-        if (GetDriverType(driver.driveParam) == DriverType.BYTE_OR_SIGNED_FLOAT)
-        {
-            int oldIVal = driver.iValue;
-            driver.iValue = EditorGUILayout.IntField("Int ("+driver.driveParam+")", driver.iValue);
-            driver.iValue = Mathf.Clamp(driver.iValue, 0, 255);
-            if (dirtyi || oldIVal != driver.iValue)
-                driver.fValue = ((float)(sbyte)driver.iValue) / 127f;
-
-            float oldFVal = driver.fValue;
-            driver.fValue = EditorGUILayout.FloatField("Float ("+driver.driveParam+"f)", driver.fValue);
-            driver.fValue = Mathf.Clamp(driver.fValue, -1f, 1f);
-            if (dirtyf || oldFVal != driver.fValue)
-                driver.iValue = (byte)(sbyte)Mathf.RoundToInt(driver.fValue * 127f);
-        }
-        else if (GetDriverType(driver.driveParam) == DriverType.CLAMP01_FLOAT)
-        {
-            driver.fValue = EditorGUILayout.FloatField("Value", Mathf.Clamp01(driver.fValue));
-        }
-        else if (GetDriverType(driver.driveParam) == DriverType.GESTURE)
-        {
-            driver.iValue = Mathf.Clamp(EditorGUILayout.IntField("Value", driver.iValue), 0, 7);
-        }
-        else
-        {
-            EditorGUILayout.LabelField("-- UNKNOWN PARAMETER --");
-        }
-
-        EditorGUI.indentLevel--;
-
-        serializedObject.ApplyModifiedProperties();
-
-        //if (_repaint)
-        //    EditorUtility.SetDirty(target);
-    }
-
-    DriverType GetDriverType(DriveableAvatarParameter param)
-    {
-        switch(param)
-        {
-            case DriveableAvatarParameter.GestureLeft: return DriverType.GESTURE;
-            case DriveableAvatarParameter.GestureRight: return DriverType.GESTURE;
-            case DriveableAvatarParameter.GestureLeftWeight: return DriverType.CLAMP01_FLOAT;
-            case DriveableAvatarParameter.GestureRightWeight: return DriverType.CLAMP01_FLOAT;
-
-            case DriveableAvatarParameter.Stage1:
-            case DriveableAvatarParameter.Stage2:
-            case DriveableAvatarParameter.Stage3:
-            case DriveableAvatarParameter.Stage4:
-            case DriveableAvatarParameter.Stage5:
-            case DriveableAvatarParameter.Stage6:
-            case DriveableAvatarParameter.Stage7:
-            case DriveableAvatarParameter.Stage8:
-            case DriveableAvatarParameter.Stage9:
-            case DriveableAvatarParameter.Stage10:
-            case DriveableAvatarParameter.Stage11:
-            case DriveableAvatarParameter.Stage12:
-            case DriveableAvatarParameter.Stage13:
-            case DriveableAvatarParameter.Stage14:
-            case DriveableAvatarParameter.Stage15:
-            case DriveableAvatarParameter.Stage16: return DriverType.BYTE_OR_SIGNED_FLOAT;
-        }
-
-        return DriverType.UNKNOWN;
-    }*/
 }
 #endif
