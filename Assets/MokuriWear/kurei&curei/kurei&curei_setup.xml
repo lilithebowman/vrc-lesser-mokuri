@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SaveFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <arrayNum>21</arrayNum>
+  <nameObj>
+    <string>MeshRoot</string>
+    <string>Hips</string>
+    <string>Spine1</string>
+    <string>Spine2</string>
+    <string>Neck</string>
+    <string>Shoulder_L</string>
+    <string>Arm_L</string>
+    <string>ForArm_L</string>
+    <string>Hand_L</string>
+    <string>Shoulder_R</string>
+    <string>Arm_R</string>
+    <string>ForArm_R</string>
+    <string>Hand_R</string>
+    <string>Thigh_L</string>
+    <string>Knee_L</string>
+    <string>Foot_L</string>
+    <string>Toe_L</string>
+    <string>Thigh_R</string>
+    <string>Knee_R</string>
+    <string>Foot_R</string>
+    <string>Toe_R</string>
+  </nameObj>
+</SaveFile>

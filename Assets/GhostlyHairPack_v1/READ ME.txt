@@ -1,0 +1,5 @@
+Ghostly Hair Pack v1
+
+FBX files for hairs made by Ghostly, please do not sell or redistribute. 
+
+Import FBX into Blender, delete the armature for the hair, and select the hair mesh and the body mesh and ctrl+j to join together. That's it and just export. 
