@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
-  ViewPosition: {x: 0, y: 1.6, z: 0.2}
+  ViewPosition: {x: 0, y: 0.875, z: 0.1}
   Animations: 0
   ScaleIPD: 1
   lipSync: 3
@@ -496,7 +496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
-  ViewPosition: {x: 0, y: 1.6, z: 0.2}
+  ViewPosition: {x: 0, y: 0.875, z: 0.1}
   Animations: 0
   ScaleIPD: 1
   lipSync: 0
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
-  ViewPosition: {x: 0, y: 1.6, z: 0.2}
+  ViewPosition: {x: 0, y: 0.875, z: 0.1}
   Animations: 0
   ScaleIPD: 1
   lipSync: 0
