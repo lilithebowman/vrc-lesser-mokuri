@@ -273,7 +273,7 @@ MonoBehaviour:
   - vrc.v_ih
   - vrc.v_oh
   - vrc.v_ou
-  unityVersion: 
+  unityVersion: 2018.4.20f1
   portraitCameraPositionOffset: {x: 0, y: 0, z: 0}
   portraitCameraRotationOffset: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   customExpressions: 0
@@ -396,6 +396,19 @@ MonoBehaviour:
   animationHashSet: []
   autoFootsteps: 1
   autoLocomotion: 1
+--- !u!114 &1382864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 229740497, guid: 4ecd63eff847044b68db9453ce219299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contentType: 0
 --- !u!1001 &178260118
 PrefabInstance:
   m_ObjectHideFlags: 0
