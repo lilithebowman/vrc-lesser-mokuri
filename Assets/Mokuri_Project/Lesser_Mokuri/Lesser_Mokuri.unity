@@ -485,10 +485,20 @@ MonoBehaviour:
         right: {x: 0, y: 0, z: 0, w: 0}
     eyelidsSkinnedMesh: {fileID: 1382861}
     eyelidsBlendshapes: 19000000ffffffffffffffff
-  customizeAnimationLayers: 1
+  customizeAnimationLayers: 0
   baseAnimationLayers:
   - isEnabled: 0
     type: 0
+    animatorController: {fileID: 0}
+    mask: {fileID: 0}
+    isDefault: 1
+  - isEnabled: 0
+    type: 2
+    animatorController: {fileID: 0}
+    mask: {fileID: 0}
+    isDefault: 1
+  - isEnabled: 0
+    type: 3
     animatorController: {fileID: 0}
     mask: {fileID: 0}
     isDefault: 1
