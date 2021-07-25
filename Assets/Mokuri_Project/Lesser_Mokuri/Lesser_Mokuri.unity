@@ -493,16 +493,6 @@ MonoBehaviour:
     mask: {fileID: 0}
     isDefault: 1
   - isEnabled: 0
-    type: 2
-    animatorController: {fileID: 0}
-    mask: {fileID: 0}
-    isDefault: 1
-  - isEnabled: 0
-    type: 3
-    animatorController: {fileID: 0}
-    mask: {fileID: 0}
-    isDefault: 1
-  - isEnabled: 0
     type: 4
     animatorController: {fileID: 0}
     mask: {fileID: 0}
