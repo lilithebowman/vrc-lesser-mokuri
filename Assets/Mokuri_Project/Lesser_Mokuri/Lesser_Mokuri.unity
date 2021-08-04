@@ -964,6 +964,67 @@ RotationConstraint:
   m_Sources:
   - sourceTransform: {fileID: 1099129505}
     weight: 1
+--- !u!1001 &145296384
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 606703401}
+    m_Modifications:
+    - target: {fileID: 100000, guid: b7c659c983094214385e95663f04d738, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100134, guid: b7c659c983094214385e95663f04d738, type: 3}
+      propertyPath: m_Name
+      value: Yukata Only FBX (Rig)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400134, guid: b7c659c983094214385e95663f04d738, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400134, guid: b7c659c983094214385e95663f04d738, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400134, guid: b7c659c983094214385e95663f04d738, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400134, guid: b7c659c983094214385e95663f04d738, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400134, guid: b7c659c983094214385e95663f04d738, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400134, guid: b7c659c983094214385e95663f04d738, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400134, guid: b7c659c983094214385e95663f04d738, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400134, guid: b7c659c983094214385e95663f04d738, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 400134, guid: b7c659c983094214385e95663f04d738, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400134, guid: b7c659c983094214385e95663f04d738, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400134, guid: b7c659c983094214385e95663f04d738, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7c659c983094214385e95663f04d738, type: 3}
 --- !u!1001 &178260118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1442,6 +1503,71 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 12e4e6e0f42c6b344b4f3fe749f6b0a0, type: 2}
+    - target: {fileID: 4964360231278628601, guid: 6323e4bf0dcb2674488a1874fcefffcb,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964360231278628601, guid: 6323e4bf0dcb2674488a1874fcefffcb,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[8]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964360231278628601, guid: 6323e4bf0dcb2674488a1874fcefffcb,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[5]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964360231278628601, guid: 6323e4bf0dcb2674488a1874fcefffcb,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964360231278628601, guid: 6323e4bf0dcb2674488a1874fcefffcb,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964360231278628601, guid: 6323e4bf0dcb2674488a1874fcefffcb,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964360231278628601, guid: 6323e4bf0dcb2674488a1874fcefffcb,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[16]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964360231278628601, guid: 6323e4bf0dcb2674488a1874fcefffcb,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[17]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964360231278628601, guid: 6323e4bf0dcb2674488a1874fcefffcb,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[13]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964360231278628601, guid: 6323e4bf0dcb2674488a1874fcefffcb,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[12]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964360231278628601, guid: 6323e4bf0dcb2674488a1874fcefffcb,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[11]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964360231278628601, guid: 6323e4bf0dcb2674488a1874fcefffcb,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[10]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4964360231278628601, guid: 6323e4bf0dcb2674488a1874fcefffcb,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[9]
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 4964360231281803971, guid: 6323e4bf0dcb2674488a1874fcefffcb,
         type: 3}
       propertyPath: m_Name
@@ -1568,20 +1694,35 @@ MonoBehaviour:
   ViewPosition: {x: 0, y: 0.875, z: 0.1}
   Animations: 0
   ScaleIPD: 1
-  lipSync: 0
+  lipSync: 3
   lipSyncJawBone: {fileID: 0}
   lipSyncJawClosed: {x: 0, y: 0, z: 0, w: 1}
   lipSyncJawOpen: {x: 0, y: 0, z: 0, w: 1}
-  VisemeSkinnedMesh: {fileID: 0}
+  VisemeSkinnedMesh: {fileID: 606703403}
   MouthOpenBlendShapeName: Facial_Blends.Jaw_Down
-  VisemeBlendShapes: []
+  VisemeBlendShapes:
+  - sil
+  - sil
+  - sil
+  - "\u3048"
+  - "\u3048"
+  - "\u3046"
+  - "\u3046"
+  - "\u3048"
+  - "\u3093"
+  - "\u3048"
+  - "\u3042"
+  - "\u3048"
+  - "\u3044"
+  - "\u304A"
+  - "\u3046"
   unityVersion: 2018.4.20f1
   portraitCameraPositionOffset: {x: 0, y: 0, z: 0}
   portraitCameraRotationOffset: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   customExpressions: 0
   expressionsMenu: {fileID: 0}
   expressionParameters: {fileID: 0}
-  enableEyeLook: 0
+  enableEyeLook: 1
   customEyeLookSettings:
     eyeMovement:
       confidence: 0.5
@@ -1608,7 +1749,7 @@ MonoBehaviour:
       linked: 1
       left: {x: 0, y: 0, z: 0, w: 0}
       right: {x: 0, y: 0, z: 0, w: 0}
-    eyelidType: 0
+    eyelidType: 2
     upperLeftEyelid: {fileID: 0}
     upperRightEyelid: {fileID: 0}
     lowerLeftEyelid: {fileID: 0}
@@ -1649,8 +1790,8 @@ MonoBehaviour:
         linked: 1
         left: {x: 0, y: 0, z: 0, w: 0}
         right: {x: 0, y: 0, z: 0, w: 0}
-    eyelidsSkinnedMesh: {fileID: 0}
-    eyelidsBlendshapes: 
+    eyelidsSkinnedMesh: {fileID: 606703403}
+    eyelidsBlendshapes: 09000000ffffffffffffffff
   customizeAnimationLayers: 0
   baseAnimationLayers:
   - isEnabled: 0
@@ -1698,6 +1839,12 @@ MonoBehaviour:
   animationHashSet: []
   autoFootsteps: 1
   autoLocomotion: 1
+--- !u!137 &606703403 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4964360231278628601, guid: 6323e4bf0dcb2674488a1874fcefffcb,
+    type: 3}
+  m_PrefabInstance: {fileID: 606703399}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &618004940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100016, guid: eee3fd608ae94914d892fe113142342f,
@@ -2179,63 +2326,6 @@ Transform:
   m_Father: {fileID: 1788743239}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1490133936
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 606703401}
-    m_Modifications:
-    - target: {fileID: 100134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
-      propertyPath: m_Name
-      value: Yukata Only FBX Rig
-      objectReference: {fileID: 0}
-    - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.6788911
-      objectReference: {fileID: 0}
-    - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.041588753
-      objectReference: {fileID: 0}
-    - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071067
-      objectReference: {fileID: 0}
-    - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
 --- !u!1 &1788743238
 GameObject:
   m_ObjectHideFlags: 0
