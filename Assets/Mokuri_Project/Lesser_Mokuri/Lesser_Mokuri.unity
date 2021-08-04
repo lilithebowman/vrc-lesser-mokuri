@@ -1450,7 +1450,7 @@ PrefabInstance:
     - target: {fileID: 4964360231281803971, guid: 6323e4bf0dcb2674488a1874fcefffcb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4964360231281804273, guid: 6323e4bf0dcb2674488a1874fcefffcb,
         type: 3}
@@ -1575,7 +1575,7 @@ MonoBehaviour:
   VisemeSkinnedMesh: {fileID: 0}
   MouthOpenBlendShapeName: Facial_Blends.Jaw_Down
   VisemeBlendShapes: []
-  unityVersion: 
+  unityVersion: 2018.4.20f1
   portraitCameraPositionOffset: {x: 0, y: 0, z: 0}
   portraitCameraRotationOffset: {x: 0, y: 1, z: 0, w: -0.00000004371139}
   customExpressions: 0
@@ -2179,7 +2179,7 @@ Transform:
   m_Father: {fileID: 1788743239}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1558962120
+--- !u!1001 &1490133936
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -2192,19 +2192,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.6788911
       objectReference: {fileID: 0}
     - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.041588753
       objectReference: {fileID: 0}
     - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
       propertyPath: m_LocalRotation.y
@@ -2212,11 +2212,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071067
       objectReference: {fileID: 0}
     - target: {fileID: 400134, guid: 7edff5ed7f54fbe488942f03283e83e7, type: 3}
       propertyPath: m_RootOrder
