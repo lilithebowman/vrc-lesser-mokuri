@@ -121,6 +121,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &102352886 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6637952612871892184, guid: cf52fa80f92550e4cb95a53a90124a95,
+    type: 3}
+  m_PrefabInstance: {fileID: 6637952612769671982}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &102352887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102352886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 229740497, guid: 4ecd63eff847044b68db9453ce219299, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contentType: 0
 --- !u!1001 &178260118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1164,6 +1183,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: My Lil Mokuri (Blender)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637952612871924236, guid: cf52fa80f92550e4cb95a53a90124a95,
+        type: 3}
+      propertyPath: unityVersion
+      value: 2019.4.29f1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6637952612871924239, guid: cf52fa80f92550e4cb95a53a90124a95,
+        type: 3}
+      propertyPath: blueprintId
+      value: avtr_9a1a7b05-3101-4dc4-92fe-8a2b58ce7cd5
       objectReference: {fileID: 0}
     - target: {fileID: 6637952612872057080, guid: cf52fa80f92550e4cb95a53a90124a95,
         type: 3}
