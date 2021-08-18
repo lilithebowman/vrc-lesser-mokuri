@@ -733,33 +733,39 @@ namespace VRC.SDK3.Validation
                         continue;
                     }
 
-                    if(fallbackMaterialCache.TryGetFallbackMaterial(currentMaterial, out Material fallbackMaterial))
+                    // Check if the material has a cached fallback material if not then create a new one.
+                    if(!fallbackMaterialCache.TryGetFallbackMaterial(currentMaterial, out Material fallbackMaterial))
                     {
-                        // material is in our swap list, so its already a fallback
+                        fallbackMaterial = CreateFallbackMaterial(currentMaterial, user);
+
+                        // Map the current material to the fallback and the fallback to itself.
+                        fallbackMaterialCache.AddFallbackMaterial(currentMaterial, fallbackMaterial);
+                        fallbackMaterialCache.AddFallbackMaterial(fallbackMaterial, fallbackMaterial);
+
                         if(debug)
                         {
-                            Debug.Log($"<color=cyan>*** Using existing fallback: '{fallbackMaterial.shader.name}' </color>");
+                            Debug.Log($"<color=cyan>*** Creating new fallback: '{fallbackMaterial.shader.name}' </color>");
                         }
 
+                        if(fallbackMaterial == currentMaterial)
+                        {
+                            continue;
+                        }
+
+                        _replaceShadersWorkingList[i] = fallbackMaterial;
+                        anyReplaced = true;
                         continue;
                     }
 
-                    // The current material is not in our safe list so create a fallback.
-                    fallbackMaterial = CreateFallbackMaterial(currentMaterial, user);
-
-                    // Map the current material to the fallback and the fallback to itself.
-                    fallbackMaterialCache.AddFallbackMaterial(currentMaterial, fallbackMaterial);
-
-                    fallbackMaterialCache.AddFallbackMaterial(fallbackMaterial, fallbackMaterial);
+                    // If the material is the fallback then we don't need to change it.
+                    if(currentMaterial == fallbackMaterial)
+                    {
+                        continue;
+                    }
 
                     if(debug)
                     {
-                        Debug.Log($"<color=cyan>*** Creating new fallback: '{fallbackMaterial.shader.name}' </color>");
-                    }
-
-                    if(fallbackMaterial == currentMaterial)
-                    {
-                        continue;
+                        Debug.Log($"<color=cyan>*** Using existing fallback: '{fallbackMaterial.shader.name}' </color>");
                     }
 
                     _replaceShadersWorkingList[i] = fallbackMaterial;

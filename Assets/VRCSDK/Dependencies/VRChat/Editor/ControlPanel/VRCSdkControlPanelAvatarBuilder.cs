@@ -300,13 +300,13 @@ namespace VRC.SDKBase.Editor
                         _builder.OnGUIError(avatar, "This avatar is too short. The minimum is 20cm shoulder height.",
                             delegate { Selection.activeObject = avatar.gameObject; }, null);
                     else if (shoulderPosition.y < 1.0f)
-                        _builder.OnGUIWarning(avatar, "This avatar is short. This is probably shorter than you want.",
+                        _builder.OnGUIWarning(avatar, "This avatar is shorter than average.",
                             delegate { Selection.activeObject = avatar.gameObject; }, null);
                     else if (shoulderPosition.y > 5.0f)
                         _builder.OnGUIWarning(avatar, "This avatar is too tall. The maximum is 5m shoulder height.",
                             delegate { Selection.activeObject = avatar.gameObject; }, null);
                     else if (shoulderPosition.y > 2.5f)
-                        _builder.OnGUIWarning(avatar, "This avatar is tall. This is probably taller than you want.",
+                        _builder.OnGUIWarning(avatar, "This avatar is taller than average.",
                             delegate { Selection.activeObject = avatar.gameObject; }, null);
                 }
 
@@ -823,9 +823,9 @@ namespace VRC.SDKBase.Editor
             }
 
             // Get all of the meshes used by skinned mesh renderers.
-            HashSet<Mesh> avatarSkinnedMeshes = GetAllMeshesInGameObjectHierarchy(avatar.gameObject);
+            HashSet<Mesh> avatarMeshes = GetAllMeshesInGameObjectHierarchy(avatar.gameObject);
             HashSet<Mesh> incorrectlyConfiguredMeshes =
-                ScanMeshesForIncorrectBlendShapeNormalsSetting(avatarSkinnedMeshes);
+                ScanMeshesForIncorrectBlendShapeNormalsSetting(avatarMeshes);
             if (incorrectlyConfiguredMeshes.Count > 0)
             {
                 _builder.OnGUIError(
@@ -877,6 +877,145 @@ namespace VRC.SDKBase.Editor
             }
 
             return incorrectlyConfiguredMeshes;
+        }
+
+        private static void EnableLegacyBlendShapeNormals(IEnumerable<Mesh> meshesToFix)
+        {
+            HashSet<string> meshAssetPaths = new HashSet<string>();
+            foreach (Mesh meshToFix in meshesToFix)
+            {
+                // Can't get ModelImporter if the model isn't an asset.
+                if (!AssetDatabase.Contains(meshToFix))
+                {
+                    continue;
+                }
+
+                string meshAssetPath = AssetDatabase.GetAssetPath(meshToFix);
+                if (string.IsNullOrEmpty(meshAssetPath))
+                {
+                    continue;
+                }
+
+                if (meshAssetPaths.Contains(meshAssetPath))
+                {
+                    continue;
+                }
+
+                meshAssetPaths.Add(meshAssetPath);
+            }
+
+            foreach (string meshAssetPath in meshAssetPaths)
+            {
+                ModelImporter avatarImporter = AssetImporter.GetAtPath(meshAssetPath) as ModelImporter;
+                if (avatarImporter == null)
+                {
+                    continue;
+                }
+
+                if (avatarImporter.importBlendShapeNormals != ModelImporterNormals.Calculate)
+                {
+                    continue;
+                }
+
+                LegacyBlendShapeNormalsPropertyInfo.SetValue(avatarImporter, true);
+                avatarImporter.SaveAndReimport();
+            }
+        }
+
+        protected void CheckAvatarMeshesForMeshReadWriteSetting(Component avatar)
+        {
+            // Get all of the meshes used by skinned mesh renderers.
+            HashSet<Mesh> avatarMeshes = GetAllMeshesInGameObjectHierarchy(avatar.gameObject);
+            HashSet<Mesh> incorrectlyConfiguredMeshes =
+                ScanMeshesForDisabledMeshReadWriteSetting(avatarMeshes);
+            if (incorrectlyConfiguredMeshes.Count > 0)
+            {
+                _builder.OnGUIError(
+                    avatar,
+                    "This avatar contains meshes that were imported with Read/Write disabled. This must be fixed in the mesh import settings before uploading.",
+                    null,
+                    () => { EnableMeshReadWrite(incorrectlyConfiguredMeshes); });
+            }
+        }
+
+        private static HashSet<Mesh> ScanMeshesForDisabledMeshReadWriteSetting(IEnumerable<Mesh> avatarMeshes)
+        {
+            HashSet<Mesh> incorrectlyConfiguredMeshes = new HashSet<Mesh>();
+            foreach (Mesh avatarMesh in avatarMeshes)
+            {
+                // Can't get ModelImporter if the model isn't an asset.
+                if (!AssetDatabase.Contains(avatarMesh))
+                {
+                    continue;
+                }
+
+                string meshAssetPath = AssetDatabase.GetAssetPath(avatarMesh);
+                if (string.IsNullOrEmpty(meshAssetPath))
+                {
+                    continue;
+                }
+
+                ModelImporter avatarImporter = AssetImporter.GetAtPath(meshAssetPath) as ModelImporter;
+                if (avatarImporter == null)
+                {
+                    continue;
+                }
+
+                if (avatarImporter.isReadable)
+                {
+                    continue;
+                }
+
+                if (!incorrectlyConfiguredMeshes.Contains(avatarMesh))
+                {
+                    incorrectlyConfiguredMeshes.Add(avatarMesh);
+                }
+            }
+
+            return incorrectlyConfiguredMeshes;
+        }
+
+        private static void EnableMeshReadWrite(IEnumerable<Mesh> meshesToFix)
+        {
+            HashSet<string> meshAssetPaths = new HashSet<string>();
+            foreach (Mesh meshToFix in meshesToFix)
+            {
+                // Can't get ModelImporter if the model isn't an asset.
+                if (!AssetDatabase.Contains(meshToFix))
+                {
+                    continue;
+                }
+
+                string meshAssetPath = AssetDatabase.GetAssetPath(meshToFix);
+                if (string.IsNullOrEmpty(meshAssetPath))
+                {
+                    continue;
+                }
+
+                if (meshAssetPaths.Contains(meshAssetPath))
+                {
+                    continue;
+                }
+
+                meshAssetPaths.Add(meshAssetPath);
+            }
+
+            foreach (string meshAssetPath in meshAssetPaths)
+            {
+                ModelImporter avatarImporter = AssetImporter.GetAtPath(meshAssetPath) as ModelImporter;
+                if (avatarImporter == null)
+                {
+                    continue;
+                }
+
+                if (avatarImporter.isReadable)
+                {
+                    continue;
+                }
+
+                avatarImporter.isReadable = true;
+                avatarImporter.SaveAndReimport();
+            }
         }
 
         private static HashSet<Mesh> GetAllMeshesInGameObjectHierarchy(GameObject avatar)
@@ -952,49 +1091,6 @@ namespace VRC.SDKBase.Editor
             }
 
             return avatarMeshes;
-        }
-
-        private static void EnableLegacyBlendShapeNormals(IEnumerable<Mesh> meshesToFix)
-        {
-            HashSet<string> meshAssetPaths = new HashSet<string>();
-            foreach (Mesh meshToFix in meshesToFix)
-            {
-                // Can't get ModelImporter if the model isn't an asset.
-                if (!AssetDatabase.Contains(meshToFix))
-                {
-                    continue;
-                }
-
-                string meshAssetPath = AssetDatabase.GetAssetPath(meshToFix);
-                if (string.IsNullOrEmpty(meshAssetPath))
-                {
-                    continue;
-                }
-
-                if (meshAssetPaths.Contains(meshAssetPath))
-                {
-                    continue;
-                }
-
-                meshAssetPaths.Add(meshAssetPath);
-            }
-
-            foreach (string meshAssetPath in meshAssetPaths)
-            {
-                ModelImporter avatarImporter = AssetImporter.GetAtPath(meshAssetPath) as ModelImporter;
-                if (avatarImporter == null)
-                {
-                    continue;
-                }
-
-                if (avatarImporter.importBlendShapeNormals != ModelImporterNormals.Calculate)
-                {
-                    continue;
-                }
-
-                LegacyBlendShapeNormalsPropertyInfo.SetValue(avatarImporter, true);
-                avatarImporter.SaveAndReimport();
-            }
         }
 
         protected void OpenAnimatorControllerWindow(object animatorController)

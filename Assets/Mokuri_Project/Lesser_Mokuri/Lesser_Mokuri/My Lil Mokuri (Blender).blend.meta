@@ -1,189 +1,554 @@
 fileFormatVersion: 2
 guid: eee3fd608ae94914d892fe113142342f
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Armature
-    100002: Body
-    100004: Chest
-    100006: Ear_L
-    100008: Ear_L_end
-    100010: Ear_R
-    100012: Ear_R_end
-    100014: Ear_Root_L
-    100016: Ear_Root_R
-    100018: Ears
-    100020: Ears_Base
-    100022: ForArm_L
-    100024: ForArm_R
-    100026: Hair
-    100028: Head
-    100030: Hips
-    100032: Index_L00
-    100034: Index_L01
-    100036: Index_L01_end
-    100038: Index_R00
-    100040: Index_R01
-    100042: Index_R01_end
-    100044: Left ankle
-    100046: Left arm
-    100048: Left knee
-    100050: Left leg
-    100052: Left shoulder
-    100054: Left toe
-    100056: Left toe_end
-    100058: Left wrist
-    100060: Middle_L00
-    100062: Middle_L01
-    100064: Middle_L01_end
-    100066: Middle_R00
-    100068: Middle_R01
-    100070: Middle_R01_end
-    100072: //RootNode
-    100074: Neck
-    100076: Pinky_L00
-    100078: Pinky_L01
-    100080: Pinky_L01_end
-    100082: Pinky_R00
-    100084: Pinky_R01
-    100086: Pinky_R01_end
-    100088: Right ankle
-    100090: Right arm
-    100092: Right knee
-    100094: Right leg
-    100096: Right shoulder
-    100098: Right toe
-    100100: Right toe_end
-    100102: Right wrist
-    100104: Ring_L00
-    100106: Ring_L01
-    100108: Ring_L01_end
-    100110: Ring_R00
-    100112: Ring_R01
-    100114: Ring_R01_end
-    100116: Spine
-    100118: Tail00
-    100120: Tail01
-    100122: Tail02
-    100124: Tail03
-    100126: Tail04
-    100128: Tail05
-    100130: Tail05_end
-    100132: Thumb_L00
-    100134: Thumb_L01
-    100136: Thumb_L01_end
-    100138: Thumb_R00
-    100140: Thumb_R01
-    100142: Thumb_R01_end
-    100144: Flower
-    100146: Yukata
-    100148: Left ankle_end
-    100150: Right ankle_end
-    100152: Yukata.001
-    400000: Armature
-    400002: Body
-    400004: Chest
-    400006: Ear_L
-    400008: Ear_L_end
-    400010: Ear_R
-    400012: Ear_R_end
-    400014: Ear_Root_L
-    400016: Ear_Root_R
-    400018: Ears
-    400020: Ears_Base
-    400022: ForArm_L
-    400024: ForArm_R
-    400026: Hair
-    400028: Head
-    400030: Hips
-    400032: Index_L00
-    400034: Index_L01
-    400036: Index_L01_end
-    400038: Index_R00
-    400040: Index_R01
-    400042: Index_R01_end
-    400044: Left ankle
-    400046: Left arm
-    400048: Left knee
-    400050: Left leg
-    400052: Left shoulder
-    400054: Left toe
-    400056: Left toe_end
-    400058: Left wrist
-    400060: Middle_L00
-    400062: Middle_L01
-    400064: Middle_L01_end
-    400066: Middle_R00
-    400068: Middle_R01
-    400070: Middle_R01_end
-    400072: //RootNode
-    400074: Neck
-    400076: Pinky_L00
-    400078: Pinky_L01
-    400080: Pinky_L01_end
-    400082: Pinky_R00
-    400084: Pinky_R01
-    400086: Pinky_R01_end
-    400088: Right ankle
-    400090: Right arm
-    400092: Right knee
-    400094: Right leg
-    400096: Right shoulder
-    400098: Right toe
-    400100: Right toe_end
-    400102: Right wrist
-    400104: Ring_L00
-    400106: Ring_L01
-    400108: Ring_L01_end
-    400110: Ring_R00
-    400112: Ring_R01
-    400114: Ring_R01_end
-    400116: Spine
-    400118: Tail00
-    400120: Tail01
-    400122: Tail02
-    400124: Tail03
-    400126: Tail04
-    400128: Tail05
-    400130: Tail05_end
-    400132: Thumb_L00
-    400134: Thumb_L01
-    400136: Thumb_L01_end
-    400138: Thumb_R00
-    400140: Thumb_R01
-    400142: Thumb_R01_end
-    400144: Flower
-    400146: Yukata
-    400148: Left ankle_end
-    400150: Right ankle_end
-    400152: Yukata.001
-    2100000: Body
-    2100002: Hair.011
-    2100004: Ears
-    2300000: Yukata
-    2300002: Body
-    2300004: Ears
-    2300006: Flower
-    2300008: Hair
-    3300000: Yukata
-    3300002: Body
-    3300004: Ears
-    3300006: Flower
-    3300008: Hair
-    4300000: Body
-    4300002: Hair
-    4300004: Ears
-    4300006: Flower
-    4300008: Yukata
-    4300010: Yukata.001
-    9500000: //RootNode
-    13700000: Body
-    13700002: Ears
-    13700004: Hair
-    13700006: Flower
-    13700008: Yukata
-    13700010: Yukata.001
-    2186277476908879412: ImportLogs
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Armature
+  - first:
+      1: 100002
+    second: Body
+  - first:
+      1: 100004
+    second: Chest
+  - first:
+      1: 100006
+    second: Ear_L
+  - first:
+      1: 100008
+    second: Ear_L_end
+  - first:
+      1: 100010
+    second: Ear_R
+  - first:
+      1: 100012
+    second: Ear_R_end
+  - first:
+      1: 100014
+    second: Ear_Root_L
+  - first:
+      1: 100016
+    second: Ear_Root_R
+  - first:
+      1: 100018
+    second: Ears
+  - first:
+      1: 100020
+    second: Ears_Base
+  - first:
+      1: 100022
+    second: ForArm_L
+  - first:
+      1: 100024
+    second: ForArm_R
+  - first:
+      1: 100026
+    second: Hair
+  - first:
+      1: 100028
+    second: Head
+  - first:
+      1: 100030
+    second: Hips
+  - first:
+      1: 100032
+    second: Index_L00
+  - first:
+      1: 100034
+    second: Index_L01
+  - first:
+      1: 100036
+    second: Index_L01_end
+  - first:
+      1: 100038
+    second: Index_R00
+  - first:
+      1: 100040
+    second: Index_R01
+  - first:
+      1: 100042
+    second: Index_R01_end
+  - first:
+      1: 100044
+    second: Left ankle
+  - first:
+      1: 100046
+    second: Left arm
+  - first:
+      1: 100048
+    second: Left knee
+  - first:
+      1: 100050
+    second: Left leg
+  - first:
+      1: 100052
+    second: Left shoulder
+  - first:
+      1: 100054
+    second: Left toe
+  - first:
+      1: 100056
+    second: Left toe_end
+  - first:
+      1: 100058
+    second: Left wrist
+  - first:
+      1: 100060
+    second: Middle_L00
+  - first:
+      1: 100062
+    second: Middle_L01
+  - first:
+      1: 100064
+    second: Middle_L01_end
+  - first:
+      1: 100066
+    second: Middle_R00
+  - first:
+      1: 100068
+    second: Middle_R01
+  - first:
+      1: 100070
+    second: Middle_R01_end
+  - first:
+      1: 100072
+    second: //RootNode
+  - first:
+      1: 100074
+    second: Neck
+  - first:
+      1: 100076
+    second: Pinky_L00
+  - first:
+      1: 100078
+    second: Pinky_L01
+  - first:
+      1: 100080
+    second: Pinky_L01_end
+  - first:
+      1: 100082
+    second: Pinky_R00
+  - first:
+      1: 100084
+    second: Pinky_R01
+  - first:
+      1: 100086
+    second: Pinky_R01_end
+  - first:
+      1: 100088
+    second: Right ankle
+  - first:
+      1: 100090
+    second: Right arm
+  - first:
+      1: 100092
+    second: Right knee
+  - first:
+      1: 100094
+    second: Right leg
+  - first:
+      1: 100096
+    second: Right shoulder
+  - first:
+      1: 100098
+    second: Right toe
+  - first:
+      1: 100100
+    second: Right toe_end
+  - first:
+      1: 100102
+    second: Right wrist
+  - first:
+      1: 100104
+    second: Ring_L00
+  - first:
+      1: 100106
+    second: Ring_L01
+  - first:
+      1: 100108
+    second: Ring_L01_end
+  - first:
+      1: 100110
+    second: Ring_R00
+  - first:
+      1: 100112
+    second: Ring_R01
+  - first:
+      1: 100114
+    second: Ring_R01_end
+  - first:
+      1: 100116
+    second: Spine
+  - first:
+      1: 100118
+    second: Tail00
+  - first:
+      1: 100120
+    second: Tail01
+  - first:
+      1: 100122
+    second: Tail02
+  - first:
+      1: 100124
+    second: Tail03
+  - first:
+      1: 100126
+    second: Tail04
+  - first:
+      1: 100128
+    second: Tail05
+  - first:
+      1: 100130
+    second: Tail05_end
+  - first:
+      1: 100132
+    second: Thumb_L00
+  - first:
+      1: 100134
+    second: Thumb_L01
+  - first:
+      1: 100136
+    second: Thumb_L01_end
+  - first:
+      1: 100138
+    second: Thumb_R00
+  - first:
+      1: 100140
+    second: Thumb_R01
+  - first:
+      1: 100142
+    second: Thumb_R01_end
+  - first:
+      1: 100144
+    second: Flower
+  - first:
+      1: 100146
+    second: Yukata
+  - first:
+      1: 100148
+    second: Left ankle_end
+  - first:
+      1: 100150
+    second: Right ankle_end
+  - first:
+      1: 100152
+    second: Yukata.001
+  - first:
+      4: 400000
+    second: Armature
+  - first:
+      4: 400002
+    second: Body
+  - first:
+      4: 400004
+    second: Chest
+  - first:
+      4: 400006
+    second: Ear_L
+  - first:
+      4: 400008
+    second: Ear_L_end
+  - first:
+      4: 400010
+    second: Ear_R
+  - first:
+      4: 400012
+    second: Ear_R_end
+  - first:
+      4: 400014
+    second: Ear_Root_L
+  - first:
+      4: 400016
+    second: Ear_Root_R
+  - first:
+      4: 400018
+    second: Ears
+  - first:
+      4: 400020
+    second: Ears_Base
+  - first:
+      4: 400022
+    second: ForArm_L
+  - first:
+      4: 400024
+    second: ForArm_R
+  - first:
+      4: 400026
+    second: Hair
+  - first:
+      4: 400028
+    second: Head
+  - first:
+      4: 400030
+    second: Hips
+  - first:
+      4: 400032
+    second: Index_L00
+  - first:
+      4: 400034
+    second: Index_L01
+  - first:
+      4: 400036
+    second: Index_L01_end
+  - first:
+      4: 400038
+    second: Index_R00
+  - first:
+      4: 400040
+    second: Index_R01
+  - first:
+      4: 400042
+    second: Index_R01_end
+  - first:
+      4: 400044
+    second: Left ankle
+  - first:
+      4: 400046
+    second: Left arm
+  - first:
+      4: 400048
+    second: Left knee
+  - first:
+      4: 400050
+    second: Left leg
+  - first:
+      4: 400052
+    second: Left shoulder
+  - first:
+      4: 400054
+    second: Left toe
+  - first:
+      4: 400056
+    second: Left toe_end
+  - first:
+      4: 400058
+    second: Left wrist
+  - first:
+      4: 400060
+    second: Middle_L00
+  - first:
+      4: 400062
+    second: Middle_L01
+  - first:
+      4: 400064
+    second: Middle_L01_end
+  - first:
+      4: 400066
+    second: Middle_R00
+  - first:
+      4: 400068
+    second: Middle_R01
+  - first:
+      4: 400070
+    second: Middle_R01_end
+  - first:
+      4: 400072
+    second: //RootNode
+  - first:
+      4: 400074
+    second: Neck
+  - first:
+      4: 400076
+    second: Pinky_L00
+  - first:
+      4: 400078
+    second: Pinky_L01
+  - first:
+      4: 400080
+    second: Pinky_L01_end
+  - first:
+      4: 400082
+    second: Pinky_R00
+  - first:
+      4: 400084
+    second: Pinky_R01
+  - first:
+      4: 400086
+    second: Pinky_R01_end
+  - first:
+      4: 400088
+    second: Right ankle
+  - first:
+      4: 400090
+    second: Right arm
+  - first:
+      4: 400092
+    second: Right knee
+  - first:
+      4: 400094
+    second: Right leg
+  - first:
+      4: 400096
+    second: Right shoulder
+  - first:
+      4: 400098
+    second: Right toe
+  - first:
+      4: 400100
+    second: Right toe_end
+  - first:
+      4: 400102
+    second: Right wrist
+  - first:
+      4: 400104
+    second: Ring_L00
+  - first:
+      4: 400106
+    second: Ring_L01
+  - first:
+      4: 400108
+    second: Ring_L01_end
+  - first:
+      4: 400110
+    second: Ring_R00
+  - first:
+      4: 400112
+    second: Ring_R01
+  - first:
+      4: 400114
+    second: Ring_R01_end
+  - first:
+      4: 400116
+    second: Spine
+  - first:
+      4: 400118
+    second: Tail00
+  - first:
+      4: 400120
+    second: Tail01
+  - first:
+      4: 400122
+    second: Tail02
+  - first:
+      4: 400124
+    second: Tail03
+  - first:
+      4: 400126
+    second: Tail04
+  - first:
+      4: 400128
+    second: Tail05
+  - first:
+      4: 400130
+    second: Tail05_end
+  - first:
+      4: 400132
+    second: Thumb_L00
+  - first:
+      4: 400134
+    second: Thumb_L01
+  - first:
+      4: 400136
+    second: Thumb_L01_end
+  - first:
+      4: 400138
+    second: Thumb_R00
+  - first:
+      4: 400140
+    second: Thumb_R01
+  - first:
+      4: 400142
+    second: Thumb_R01_end
+  - first:
+      4: 400144
+    second: Flower
+  - first:
+      4: 400146
+    second: Yukata
+  - first:
+      4: 400148
+    second: Left ankle_end
+  - first:
+      4: 400150
+    second: Right ankle_end
+  - first:
+      4: 400152
+    second: Yukata.001
+  - first:
+      21: 2100000
+    second: Body
+  - first:
+      21: 2100002
+    second: Hair.011
+  - first:
+      21: 2100004
+    second: Ears
+  - first:
+      23: 2300000
+    second: Yukata
+  - first:
+      23: 2300002
+    second: Body
+  - first:
+      23: 2300004
+    second: Ears
+  - first:
+      23: 2300006
+    second: Flower
+  - first:
+      23: 2300008
+    second: Hair
+  - first:
+      33: 3300000
+    second: Yukata
+  - first:
+      33: 3300002
+    second: Body
+  - first:
+      33: 3300004
+    second: Ears
+  - first:
+      33: 3300006
+    second: Flower
+  - first:
+      33: 3300008
+    second: Hair
+  - first:
+      43: 4300000
+    second: Body
+  - first:
+      43: 4300002
+    second: Hair
+  - first:
+      43: 4300004
+    second: Ears
+  - first:
+      43: 4300006
+    second: Flower
+  - first:
+      43: 4300008
+    second: Yukata
+  - first:
+      43: 4300010
+    second: Yukata.001
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Body
+  - first:
+      137: 13700002
+    second: Ears
+  - first:
+      137: 13700004
+    second: Hair
+  - first:
+      137: 13700006
+    second: Flower
+  - first:
+      137: 13700008
+    second: Yukata
+  - first:
+      137: 13700010
+    second: Yukata.001
+  - first:
+      41386430: 2186277476908879412
+    second: ImportLogs
+  - first:
+      74: -623603649343465320
+    second: Scene
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -216,7 +581,7 @@ ModelImporter:
       name: Yukata
     second: {fileID: 2100000, guid: 91455b4ec9215f24d8346df1e3ad322f, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 0
@@ -249,25 +614,28 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -276,10 +644,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human:
     - boneName: Hips
       humanName: Hips
@@ -974,13 +1342,16 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
