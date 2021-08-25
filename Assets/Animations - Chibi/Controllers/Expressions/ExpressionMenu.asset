@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -340790334, guid: 67cc4cb7839cd3741b63733d5adf0442, type: 3}
+  m_Name: ExpressionMenu
+  m_EditorClassIdentifier: 
+  controls:
+  - name: BodyCtrls
+    icon: {fileID: 0}
+    type: 103
+    parameter:
+      name: 
+    value: 1
+    style: 0
+    subMenu: {fileID: 11400000, guid: d27945e23f0106a4cbebcf6b23190454, type: 2}
+    subParameters: []
+    labels: []
+  - name: Actions
+    icon: {fileID: 2800000, guid: 042589304d621b546b78d53dbe8d5cda, type: 3}
+    type: 103
+    parameter:
+      name: 
+    value: 1
+    style: 0
+    subMenu: {fileID: 11400000, guid: e3196a853828f0149b820ac5cfbf0772, type: 2}
+    subParameters: []
+    labels: []
+  - name: Toggles
+    icon: {fileID: 2800000, guid: d4be5cba286305b4bb012cc8210b9145, type: 3}
+    type: 103
+    parameter:
+      name: 
+    value: 1
+    style: 0
+    subMenu: {fileID: 11400000, guid: 9b262d2e13a02da448f5108b77bf1a85, type: 2}
+    subParameters: []
+    labels: []
+  - name: Face
+    icon: {fileID: 2800000, guid: af1ba8919b0ccb94a99caf43ac36f97d, type: 3}
+    type: 201
+    parameter:
+      name: 
+    value: 1
+    style: 0
+    subMenu: {fileID: 0}
+    subParameters:
+    - name: FaceH
+    - name: FaceV
+    labels:
+    - name: 
+      icon: {fileID: 0}
+    - name: 
+      icon: {fileID: 0}
+    - name: 
+      icon: {fileID: 0}
+    - name: 
+      icon: {fileID: 0}
