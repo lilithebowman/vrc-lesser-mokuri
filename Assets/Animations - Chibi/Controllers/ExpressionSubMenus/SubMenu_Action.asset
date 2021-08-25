@@ -35,7 +35,7 @@ MonoBehaviour:
     labels: []
   - name: Nod yes
     icon: {fileID: 2800000, guid: 1918effc6b872eb439c431d183a06ce1, type: 3}
-    type: 102
+    type: 101
     parameter:
       name: VRCEmoteBB
     value: 3
@@ -55,7 +55,7 @@ MonoBehaviour:
     labels: []
   - name: Ear scratch
     icon: {fileID: 2800000, guid: ccb388b9850a14f4f8e8f760ca934bdb, type: 3}
-    type: 102
+    type: 101
     parameter:
       name: VRCEmoteBB
     value: 5
