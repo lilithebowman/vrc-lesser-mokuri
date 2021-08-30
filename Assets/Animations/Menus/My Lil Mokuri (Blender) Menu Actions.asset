@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5fb551034184ee4db9be6c551382afe, type: 3}
+  m_Name: My Lil Mokuri (Blender) Menu Actions
+  m_EditorClassIdentifier: 
+  actions:
+  - enabled: 1
+    name: Yukata Toggle
+    actionLayerAnimations:
+      enter: {fileID: 0}
+      exit: {fileID: 0}
+    fxLayerAnimations:
+      enter: {fileID: 0}
+      exit: {fileID: 0}
+    fadeIn: 0
+    hold: 0
+    fadeOut: 0
+    objectProperties:
+    - type: 3450
+      path: Yukata
+      objects: []
+      values: []
+      objRef: {fileID: 0}
+    parameterDrivers: []
+    triggers: []
+    bodyOverride:
+      head: 0
+      leftHand: 0
+      rightHand: 0
+      hip: 0
+      leftFoot: 0
+      rightFoot: 0
+      leftFingers: 0
+      rightFingers: 0
+      eyes: 0
+      mouth: 0
+    foldoutMain: 0
+    foldoutTriggers: 0
+    foldoutIkOverrides: 0
+    foldoutToggleObjects: 1
+    foldoutMaterialSwaps: 0
+    foldoutAnimations: 0
+    foldoutParameterDrivers: 0
+    menuType: 4453
+    icon: {fileID: 2800000, guid: 733a5b7183510f64f901d239a40a91dc, type: 3}
+    parameter: Yukata
+    subMenu: {fileID: 0}
+    subActions: []
+    isOffState: 0
+    controlValue: 1
+    foldoutSubActions: 0
+  - enabled: 1
+    name: Scared
+    actionLayerAnimations:
+      enter: {fileID: 0}
+      exit: {fileID: 0}
+    fxLayerAnimations:
+      enter: {fileID: 0}
+      exit: {fileID: 0}
+    fadeIn: 0.5
+    hold: 0
+    fadeOut: 0
+    objectProperties:
+    - type: 9301
+      path: Body
+      objects: []
+      values:
+      - 26
+      - 100
+      objRef: {fileID: 0}
+    parameterDrivers: []
+    triggers: []
+    bodyOverride:
+      head: 0
+      leftHand: 0
+      rightHand: 0
+      hip: 0
+      leftFoot: 0
+      rightFoot: 0
+      leftFingers: 0
+      rightFingers: 0
+      eyes: 0
+      mouth: 0
+    foldoutMain: 0
+    foldoutTriggers: 0
+    foldoutIkOverrides: 0
+    foldoutToggleObjects: 1
+    foldoutMaterialSwaps: 0
+    foldoutAnimations: 0
+    foldoutParameterDrivers: 0
+    menuType: 4453
+    icon: {fileID: 0}
+    parameter: Scared
+    subMenu: {fileID: 0}
+    subActions: []
+    isOffState: 0
+    controlValue: 1
+    foldoutSubActions: 0
+  - enabled: 1
+    name: Unimpressed
+    actionLayerAnimations:
+      enter: {fileID: 0}
+      exit: {fileID: 0}
+    fxLayerAnimations:
+      enter: {fileID: 0}
+      exit: {fileID: 0}
+    fadeIn: 0.5
+    hold: 0
+    fadeOut: 0
+    objectProperties:
+    - type: 9301
+      path: Body
+      objects: []
+      values:
+      - 27
+      - 100
+      objRef: {fileID: 0}
+    parameterDrivers: []
+    triggers: []
+    bodyOverride:
+      head: 0
+      leftHand: 0
+      rightHand: 0
+      hip: 0
+      leftFoot: 0
+      rightFoot: 0
+      leftFingers: 0
+      rightFingers: 0
+      eyes: 0
+      mouth: 0
+    foldoutMain: 0
+    foldoutTriggers: 0
+    foldoutIkOverrides: 0
+    foldoutToggleObjects: 1
+    foldoutMaterialSwaps: 0
+    foldoutAnimations: 0
+    foldoutParameterDrivers: 0
+    menuType: 4453
+    icon: {fileID: 2800000, guid: a9908327162da4f419e54f3e2e17a86e, type: 3}
+    parameter: Unimpressed
+    subMenu: {fileID: 0}
+    subActions: []
+    isOffState: 0
+    controlValue: 1
+    foldoutSubActions: 0
+  - enabled: 1
+    name: Tired
+    actionLayerAnimations:
+      enter: {fileID: 0}
+      exit: {fileID: 0}
+    fxLayerAnimations:
+      enter: {fileID: 0}
+      exit: {fileID: 0}
+    fadeIn: 0.5
+    hold: 0
+    fadeOut: 0
+    objectProperties:
+    - type: 9301
+      path: Body
+      objects: []
+      values:
+      - 28
+      - 100
+      objRef: {fileID: 0}
+    parameterDrivers: []
+    triggers: []
+    bodyOverride:
+      head: 0
+      leftHand: 0
+      rightHand: 0
+      hip: 0
+      leftFoot: 0
+      rightFoot: 0
+      leftFingers: 0
+      rightFingers: 0
+      eyes: 0
+      mouth: 0
+    foldoutMain: 0
+    foldoutTriggers: 0
+    foldoutIkOverrides: 0
+    foldoutToggleObjects: 1
+    foldoutMaterialSwaps: 0
+    foldoutAnimations: 0
+    foldoutParameterDrivers: 0
+    menuType: 4453
+    icon: {fileID: 2800000, guid: ca43c04f2d4ab8f4c99d90337d28d169, type: 3}
+    parameter: Tired
+    subMenu: {fileID: 0}
+    subActions: []
+    isOffState: 0
+    controlValue: 1
+    foldoutSubActions: 0
