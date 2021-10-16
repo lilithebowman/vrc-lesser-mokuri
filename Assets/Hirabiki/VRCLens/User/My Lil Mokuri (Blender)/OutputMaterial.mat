@@ -52,7 +52,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutputTex:
-        m_Texture: {fileID: 8400000, guid: 75e33808b298e9f48be817b62f757dbd, type: 2}
+        m_Texture: {fileID: 8400000, guid: 454309848071d9942a9cbbaae4ee810d, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:

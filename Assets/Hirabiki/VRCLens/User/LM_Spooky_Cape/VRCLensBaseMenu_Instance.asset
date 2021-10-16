@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -340790334, guid: 67cc4cb7839cd3741b63733d5adf0442, type: 3}
+  m_Name: VRCLensBaseMenu_Instance
+  m_EditorClassIdentifier: 
+  controls:
+  - name: ' VRCLens '
+    icon: {fileID: 2800000, guid: 1f325d394a21b9b46abe0102680a51e2, type: 3}
+    type: 103
+    parameter:
+      name: 
+    value: 250
+    style: 0
+    subMenu: {fileID: 11400000, guid: 93accdaeb0158ac4a9e8e11484fb3627, type: 2}
+    subParameters: []
+    labels: []
+  - name: Expressions
+    icon: {fileID: 0}
+    type: 103
+    parameter:
+      name: 
+    value: 1
+    style: 0
+    subMenu: {fileID: 11400000, guid: 024fb8ef5b3988c46b446863c92f4522, type: 2}
+    subParameters: []
+    labels: []
+  - name: Bats
+    icon: {fileID: 2800000, guid: 64aa9025ab216b9489b02b7a306403c1, type: 3}
+    type: 102
+    parameter:
+      name: Bats
+    value: 1
+    style: 0
+    subMenu: {fileID: 0}
+    subParameters: []
+    labels: []

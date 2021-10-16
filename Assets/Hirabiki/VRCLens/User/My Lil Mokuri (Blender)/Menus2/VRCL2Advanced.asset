@@ -20,7 +20,7 @@ MonoBehaviour:
       name: 
     value: 1
     style: 0
-    subMenu: {fileID: 11400000, guid: be2d2eb6af9a1be44917dba5fc2c8e0f, type: 2}
+    subMenu: {fileID: 11400000, guid: d784622488d5fe547a21ed59d64b244b, type: 2}
     subParameters: []
     labels: []
   - name: Quick Selfie
@@ -40,7 +40,7 @@ MonoBehaviour:
       name: 
     value: 1
     style: 0
-    subMenu: {fileID: 11400000, guid: 294f05035e540984a9cc2161f4f930b8, type: 2}
+    subMenu: {fileID: 11400000, guid: e57398c5f7566194cb5a98b6039aecf3, type: 2}
     subParameters: []
     labels: []
   - name: Extra...
@@ -50,7 +50,7 @@ MonoBehaviour:
       name: 
     value: 1
     style: 0
-    subMenu: {fileID: 11400000, guid: c6d24c0f2c79b3a42ac03bc8a25a1cd3, type: 2}
+    subMenu: {fileID: 11400000, guid: 90333ef2557352b4cb5ebbc0b889001e, type: 2}
     subParameters: []
     labels: []
   - name: Drop
@@ -80,6 +80,6 @@ MonoBehaviour:
       name: 
     value: 1
     style: 0
-    subMenu: {fileID: 11400000, guid: 0a3108fc48673b849a0cc00392a3ab48, type: 2}
+    subMenu: {fileID: 11400000, guid: 610c775cc84d18f4c9778f14caed3666, type: 2}
     subParameters: []
     labels: []

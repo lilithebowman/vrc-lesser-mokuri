@@ -30,7 +30,7 @@ MonoBehaviour:
       name: 
     value: 1
     style: 0
-    subMenu: {fileID: 11400000, guid: 4fb7ef7bcc4c6f54dae18a9ec803d9db, type: 2}
+    subMenu: {fileID: 11400000, guid: 562c29deb6f91704ca4b20ee54418394, type: 2}
     subParameters: []
     labels: []
   - name: Zoom
@@ -40,7 +40,7 @@ MonoBehaviour:
       name: 
     value: 1
     style: 0
-    subMenu: {fileID: 11400000, guid: 294f05035e540984a9cc2161f4f930b8, type: 2}
+    subMenu: {fileID: 11400000, guid: e57398c5f7566194cb5a98b6039aecf3, type: 2}
     subParameters: []
     labels: []
   - name: Drone
@@ -50,7 +50,7 @@ MonoBehaviour:
       name: 
     value: 251
     style: 0
-    subMenu: {fileID: 11400000, guid: 1fee98131bc8ed64bbb7d94743aba9bb, type: 2}
+    subMenu: {fileID: 11400000, guid: cda05060e197c7d45b4eebe36ceef471, type: 2}
     subParameters: []
     labels: []
   - name: Aperture
@@ -60,7 +60,7 @@ MonoBehaviour:
       name: 
     value: 1
     style: 0
-    subMenu: {fileID: 11400000, guid: f9ca9bc7cdd77c24393498d8c5114dd2, type: 2}
+    subMenu: {fileID: 11400000, guid: 5b1337a41664247479e061c3eae5836d, type: 2}
     subParameters: []
     labels: []
   - name: Settings
@@ -70,7 +70,7 @@ MonoBehaviour:
       name: 
     value: 1
     style: 0
-    subMenu: {fileID: 11400000, guid: b4c38cf3edd96ce48abdde6a8530f7f1, type: 2}
+    subMenu: {fileID: 11400000, guid: 72ec39ba03567344aa432ade1dc07352, type: 2}
     subParameters: []
     labels: []
   - name: Focus
@@ -80,7 +80,7 @@ MonoBehaviour:
       name: 
     value: 1
     style: 0
-    subMenu: {fileID: 11400000, guid: 0a3108fc48673b849a0cc00392a3ab48, type: 2}
+    subMenu: {fileID: 11400000, guid: 610c775cc84d18f4c9778f14caed3666, type: 2}
     subParameters: []
     labels: []
   - name: Disable

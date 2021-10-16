@@ -30,7 +30,7 @@ MonoBehaviour:
       name: 
     value: 1
     style: 0
-    subMenu: {fileID: 11400000, guid: a26dfa969f83b2a4999620c39f4fd109, type: 2}
+    subMenu: {fileID: 11400000, guid: e4af922da1cf19547965ac82a91b7500, type: 2}
     subParameters: []
     labels: []
   - name: Zoom
@@ -40,7 +40,7 @@ MonoBehaviour:
       name: 
     value: 1
     style: 0
-    subMenu: {fileID: 11400000, guid: 294f05035e540984a9cc2161f4f930b8, type: 2}
+    subMenu: {fileID: 11400000, guid: e57398c5f7566194cb5a98b6039aecf3, type: 2}
     subParameters: []
     labels: []
   - name: Auto Focus
@@ -60,7 +60,7 @@ MonoBehaviour:
       name: 
     value: 1
     style: 0
-    subMenu: {fileID: 11400000, guid: 8d7a3e2b94e8ab7499342a1879fd31ea, type: 2}
+    subMenu: {fileID: 11400000, guid: 9ed7b1e0f1b13e6488c77ac4c3d6aad0, type: 2}
     subParameters: []
     labels: []
   - name: Avatar AF
