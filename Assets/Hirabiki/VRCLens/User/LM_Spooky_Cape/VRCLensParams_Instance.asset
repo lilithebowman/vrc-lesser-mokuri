@@ -29,3 +29,7 @@ MonoBehaviour:
     valueType: 0
     saved: 1
     defaultValue: 0
+  - name: VRCEmote
+    valueType: 0
+    saved: 1
+    defaultValue: 0
