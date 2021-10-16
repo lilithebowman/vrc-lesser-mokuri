@@ -28,7 +28,7 @@ namespace Hirabiki.AV3.Works.VRCLens
         public VRCAvatarDescriptor avatarDescriptor;
         public VRCExpressionsMenu targetSubMenu;
         public GameObject cameraModel;
-        public TextAsset readmeFile;
+        // No longer needed a readme file, now using the path of this script as reference
         public SetupMode setupMode = SetupMode.VRRightHand;
         public int maxBlurSize = 225;
         public int maxBlurIndex = 1, droneGestureIndex = 5, sensorResIndex = 0;
@@ -60,6 +60,7 @@ namespace Hirabiki.AV3.Works.VRCLens
         private Transform _leftHand;
         private Transform _rightHand;
         private VRCLensAssetManager _reserializeManager;
+        private VRCLensProfileManager _profileManager;
 
         private bool _hasNoErrors = true;
 
@@ -67,8 +68,8 @@ namespace Hirabiki.AV3.Works.VRCLens
         [NonSerialized] public bool queueValidate;
         
         public readonly int AV3_MAXPARAMALLOC = 128;
-        public const int AV3_MAXMENUS = 8;
-        public const int AV3_MAXMENUDEPTH = 32;
+        public readonly int AV3_MAXMENUS = 8;
+        public readonly int AV3_MAXMENUDEPTH = 32;
 
         private readonly string[] _pNameList = { "VRCLFeatureToggle", "VRCLInterrupt", "VRCFaceBlendH", "VRCFaceBlendV", "VRCLZoomRadial", "VRCLExposureRadial", "VRCLApertureRadial", "VRCLFocusRadial" };
         private readonly string[] _defaultUsedList = { "VRCFaceBlendH", "VRCFaceBlendV" };
@@ -366,6 +367,7 @@ namespace Hirabiki.AV3.Works.VRCLens
             transform.rotation = Quaternion.identity;
             if(avatarDescriptor != null)
             {
+                avatarDescriptor.transform.SetParent(null);
                 avatarDescriptor.transform.position = Vector3.zero;
                 avatarDescriptor.transform.rotation = Quaternion.identity;
                 float yScale = avatarDescriptor.transform.localScale.y;
@@ -425,13 +427,13 @@ namespace Hirabiki.AV3.Works.VRCLens
             foc.position = offFingerTip.position + 0.05f * offFingerTip.TransformDirection(new Vector3(0f, 1f, -0.1f));
             foc.rotation = Quaternion.LookRotation(offDir, Vector3.forward);
 
-            if(eyeL != null && eyeR != null)
-            {
-                Vector3 midPoint = Vector3.Lerp(eyeL.position, eyeR.position, 0.5f);
-                eyeFoc.position = midPoint + 0.05f * Vector3.forward;
-                camHead.position = midPoint + 0.25f * Vector3.right;
-                camHead.rotation = Quaternion.identity;
-            }
+
+            // If no eye bones, use avatar descriptor's view position instead
+            Vector3 midPoint = eyeL != null && eyeR != null ? Vector3.Lerp(eyeL.position, eyeR.position, 0.5f) : avatarDescriptor.ViewPosition;
+
+            eyeFoc.position = midPoint + 0.05f * Vector3.forward;
+            camHead.position = midPoint + 0.25f * Vector3.right;
+            camHead.rotation = Quaternion.identity;
 
             cameraRotation = cam.localRotation.eulerAngles;
             focusPenRotation = foc.localRotation.eulerAngles;
@@ -767,12 +769,12 @@ namespace Hirabiki.AV3.Works.VRCLens
                 // Utilize VRLabs' Avatars 3.0 Manager's controller merging library (MIT License)
                 // Make sure not to include base layer in VRCLens animator prefab
 
-                // UNDONE: More detailed progress inside method
+                
                 EditorUtility.DisplayProgressBar("VRCLens Setup", "Combining user and VRCLens animators", 0.90f);
 
                 AnimatorCloner.MergeControllers(userAnim, instanceAnim);
-                // HACK: Controller merging does not deep-copy Blend Trees. Keeping a reference is still required.
-                // AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(instanceAnim));
+                // Using Jun 17, 2021 commit of AnimatorCloner, which should now deep copy blend tree
+                AssetDatabase.DeleteAsset(AssetDatabase.GetAssetPath(instanceAnim));
 
                 Debug.Log($"[VRCLens {Managed.VRCLensVerifier.VRCLENS_VERSION}] {DateTime.Now.ToString("hh:mm tt")} -- Setup Complete -- 組み込み処理完了 --");
             } catch(Exception e)
@@ -1264,7 +1266,7 @@ namespace Hirabiki.AV3.Works.VRCLens
         private bool SearchAndDestroy(Transform root, string name)
         {
             Transform t = root.Find(name);
-            bool exists = t != null;
+            bool exists = t != null && !PrefabUtility.IsPartOfPrefabInstance(t);
             if(exists)
             {
                 DestroyImmediate(t.gameObject);
@@ -1287,9 +1289,9 @@ namespace Hirabiki.AV3.Works.VRCLens
 
         public bool RefreshCopyFolderPath()
         {
-            RootPath = GetParentDirectory(AssetDatabase.GetAssetPath(readmeFile));
+            RootPath = GetParentDirectory(AssetDatabase.GetAssetPath(MonoScript.FromMonoBehaviour(this)), 2);
             if(Avatar == null) return false;
-            
+
             _userCopyFolderPath = $"{UserPath}/{StringToFilename(Avatar.name)}";
             return true;
         }
@@ -1305,11 +1307,29 @@ namespace Hirabiki.AV3.Works.VRCLens
         {
             return _reserializeManager.ForceReserializeAll();
         }
+        public bool SaveSettingsToFile()
+        {
+            if(_profileManager == null)
+            {
+                _profileManager = new VRCLensProfileManager();
+                _profileManager.SetContext(this);
+            }
+            return _profileManager.SaveToJSONFile(StringToFilename(Avatar.name));
+        }
+        public bool LoadSettingsFromFile()
+        {
+            if(_profileManager == null)
+            {
+                _profileManager = new VRCLensProfileManager();
+                _profileManager.SetContext(this);
+            }
+            return _profileManager.LoadFromJSONFile();
+        }
 
         private string[] GetAllFileNamesInPath(string unityPath, string filter)
         {
             unityPath = unityPath.Replace('/', Path.DirectorySeparatorChar);
-            string fullPath = Path.GetDirectoryName($"{Application.dataPath}") + $@"\{unityPath}";
+            string fullPath = Path.GetDirectoryName($"{Application.dataPath}") + $@"/{unityPath}";
 
             string[] fileNames = Directory.GetFiles(fullPath, filter);
             for(int i = 0; i < fileNames.Length; i++)
@@ -1348,7 +1368,24 @@ namespace Hirabiki.AV3.Works.VRCLens
                 fileName = fileName.Replace(c, '_');
             }
 
-            return fileName.Replace('.', '_').Trim();
+            string[] systemFilenames = { "CON", "PRN", "AUX", "CLOCK$", "NUL",
+                "COM0", "COM1", "COM2", "COM3", "COM4", "COM5", "COM6", "COM7", "COM8", "COM9",
+                "LPT0", "LPT1", "LPT2", "LPT3", "LPT4", "LPT5", "LPT6", "LPT7", "LPT8", "LPT9" };
+
+            foreach(string fn in systemFilenames)
+            {
+                if(string.Equals(fn, fileName, StringComparison.OrdinalIgnoreCase))
+                {
+                    fileName += "_";
+                    break;
+                }
+            }
+
+            string trimmedName = fileName.Replace('.', '_').Trim();
+
+            // This should normally not be performed with normal avatar names
+            // Will only do so if avatar name is just whitespaces
+            return trimmedName == "" ? fileName.GetHashCode().ToString() : trimmedName;
         }
 
         private void RebuildPlayableLayers(VRCAvatarDescriptor av)
@@ -1590,9 +1627,6 @@ namespace Hirabiki.AV3.Works.VRCLens
             {
                 SetWriteDefaultsAll(ly.stateMachine, useWriteDefaults);
             }
-
-            // Finalize the changes of VRCAvatarParameterDriver
-            _reserializeManager.Add(AssetDatabase.GetAssetPath(anim));
         }
 
         private void ModifyAnimationClipDefaults(AnimationClip clip, Transform srcObject)

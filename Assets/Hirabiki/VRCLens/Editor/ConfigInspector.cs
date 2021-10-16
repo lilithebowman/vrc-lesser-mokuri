@@ -10,15 +10,13 @@ namespace Hirabiki.AV3.Works.VRCLens
     public class ConfigInspector : Editor
     {
         VRCLensSetup config;
-        SerializedProperty _avatarProp, _setupMode, _maxBlurSize, _targetSubMenu;
+        SerializedProperty _avatarProp, _setupMode, _targetSubMenu;
         SerializedProperty _customSensorRes;
         SerializedProperty _cameraModelPosition, _cameraModelRotation, _cameraRotation, _focusPenRotation, _cameraSize, _previewSize, _previewPosition;
         SerializedProperty _cameraModel;
         SerializedProperty _useWriteDefaults, _useDisableButton;
         SerializedProperty _av3Puppet, _av3Zoom, _av3Exposure, _av3Aperture, _av3Focus;
         SerializedProperty _animAE, _animDOF, _animGrid, _animLevel, _animDirectStream, _animLegacyStream;
-
-        SerializedProperty _readme;
 
         Transform camBase, headBase, camModel, previewBase;
         Transform focusPen;
@@ -58,7 +56,6 @@ namespace Hirabiki.AV3.Works.VRCLens
 
             _avatarProp = FindProp(nameof(p.avatarDescriptor));
             _setupMode = FindProp(nameof(p.setupMode));
-            _maxBlurSize = FindProp(nameof(p.maxBlurSize));
             _targetSubMenu = FindProp(nameof(p.targetSubMenu));
 
             _customSensorRes = FindProp(nameof(p.customSensorRes));
@@ -87,8 +84,6 @@ namespace Hirabiki.AV3.Works.VRCLens
             _animLevel = FindProp(nameof(p.animLevel));
             _animDirectStream = FindProp(nameof(p.animDirectStream));
             _animLegacyStream = FindProp(nameof(p.animLegacyStream));
-
-            _readme = FindProp(nameof(p.readmeFile));
 
             RefreshReferences();
             if(IsInScene(config))
@@ -198,6 +193,15 @@ namespace Hirabiki.AV3.Works.VRCLens
 
         public override void OnInspectorGUI()
         {
+            bool isPostAdd = config.transform.childCount == 0; // BACKWARD COMPATIBILITY
+            if(!isPostAdd) // BACKWARD COMPATIBILITY
+            {
+                EnforceInspectorAdjustments(false);
+            }
+
+            //----------  ----------//
+            EditorGUILayout.LabelField("Hint: Hover over a name of a setting for details.", EditorStyles.boldLabel);
+            GuiLine();
             if(!AssetDatabase.IsValidFolder("Assets/VRCSDK"))
             {
                 EditorGUILayout.HelpBox("You have moved or renamed the VRCSDK folder. This is not allowed.", MessageType.Error);
@@ -207,9 +211,8 @@ namespace Hirabiki.AV3.Works.VRCLens
                 EditorGUILayout.HelpBox("これをPrefabsよりのVRCLensに置き換えてください。\nPlease replace this setup script with new one in Prefabs.", MessageType.Warning);
             }
             
-            EditorGUILayout.PropertyField(_avatarProp, new GUIContent("Target Avatar", "Select your avatar here.\nアバター本体をここに移動しよう"));
-            GuiLine();
             EditorGUILayout.LabelField("Settings", EditorStyles.boldLabel);
+            EditorGUILayout.PropertyField(_avatarProp, new GUIContent("Target Avatar", "Select your avatar here.\nアバター本体をここに移動しよう"));
             EditorGUIUtility.labelWidth += 32;
             EditorGUILayout.PropertyField(_setupMode, new GUIContent("Camera Handedness",
                 @"Choose which hand the camera goes to.
@@ -219,7 +222,8 @@ In desktop mode, the camera will be attached to your head where the green camera
 デスクトップモードでプレイしたら、緑のカメラがあるところに頭に取り付いています。"));
             //config.droneGestureIndex = EditorGUILayout.Popup(new GUIContent("Drone Vertical Gesture"), config.droneGestureIndex, droneGestureOptions);
             EditorGUIUtility.labelWidth -= 32;
-            EditorGUILayout.LabelField("Max Blur Size (Performance Adjustment)");
+            EditorGUILayout.LabelField(new GUIContent("Max Blur Size (Performance Adjustment)",
+                "The maximum size of the blur. This option will affect the in-game performance. The smaller the size, the weaker the blur, but the less performace is required.\n\n最大のボカシサイズの調整。お使いのGPUに\n合わせて調整してお勧めします。"));
             config.maxBlurIndex = EditorGUILayout.Popup(config.maxBlurIndex, perfOptions);
             switch(config.maxBlurIndex)
             {
@@ -231,7 +235,7 @@ In desktop mode, the camera will be attached to your head where the green camera
             }
             
 
-            bool isPostAdd = config.transform.childCount == 0; // BACKWARD COMPATIBILITY
+            
             EditorGUI.BeginDisabledGroup(isPostAdd);
             EditorGUILayout.PropertyField(_cameraModel, new GUIContent("Camera Model", "Camera model can be changed\nカメラモデルを切り替えます"));
             EditorGUILayout.PropertyField(_cameraModelPosition, new GUIContent("Model Position", "Local position of the camera model\nカメラモデルのローカル位置"));
@@ -242,9 +246,9 @@ In desktop mode, the camera will be attached to your head where the green camera
                 ChangeCameraModel(false, Quaternion.identity);
             }
 
-            EditorGUILayout.PropertyField(_cameraRotation, new GUIContent("Camera Rotation", "Rotation of the camera\nカメラの回転"));
+            EditorGUILayout.PropertyField(_cameraRotation, new GUIContent("Camera Rotation", "The overall rotation of the camera\nカメラの回転"));
             EditorGUILayout.PropertyField(_cameraSize, new GUIContent("Camera Scale", "Size of the camera model\nカメラモデルのサイズ"));
-            EditorGUILayout.PropertyField(_previewPosition, new GUIContent("Preview Position", "Position of preview screen\nカメラ画面のローカル位置"));
+            EditorGUILayout.PropertyField(_previewPosition, new GUIContent("Preview Position", "Position of preview screen relative to the camera\nカメラ画面のローカル位置"));
             EditorGUILayout.PropertyField(_previewSize, new GUIContent("Preview Scale", "Size of preview screen\nカメラ画面のサイズ"));
             EditorGUILayout.PropertyField(_focusPenRotation, new GUIContent("Focus Pen Rotation", "Rotation of the focus pen\nフォーカスのタッチペンの回転"));
             if(GUILayout.Button(new GUIContent("Auto Arrange（自動配置）", "Attempt to automatically place VRCLens objects appropriately on your avatar")))
@@ -253,7 +257,8 @@ In desktop mode, the camera will be attached to your head where the green camera
             }
             EditorGUI.EndDisabledGroup();
 
-            EditorGUILayout.LabelField("VRCLens Object Gizmos Tools", EditorStyles.boldLabel);
+            GuiLine();
+            EditorGUILayout.LabelField("Object Gizmos Tools", EditorStyles.boldLabel);
             EditorGUILayout.BeginHorizontal();
             {
                 Color highlightColor = new Color(0.6f, 0.8f, 1.0f);
@@ -262,6 +267,21 @@ In desktop mode, the camera will be attached to your head where the green camera
                 GUI.backgroundColor = rotationGizmos ? highlightColor : Color.white;
                 if(GUILayout.Button("Rotate（回転）")) rotationGizmos = true;
                 GUI.backgroundColor = Color.white;
+            }
+            EditorGUILayout.EndHorizontal();
+            EditorGUILayout.LabelField("VRCLens Settings Profile", EditorStyles.boldLabel);
+            EditorGUILayout.BeginHorizontal();
+            if(GUILayout.Button(new GUIContent("Save Profile as...", "Save the current VRCLens settings to a file.")))
+            {
+                config.SaveSettingsToFile();
+            }
+            if(GUILayout.Button(new GUIContent("Load Profile...", "Load a saved VRCLens settings from a file.")))
+            {
+                if(config.LoadSettingsFromFile())
+                {
+                    EnforceInspectorAdjustments(true);
+                    ChangeCameraModel(false, Quaternion.identity);
+                }
             }
             EditorGUILayout.EndHorizontal();
 
@@ -295,7 +315,7 @@ Note: Bool-type parameter uses 0.125 rather of 1"));
             config.afModeIndex = EditorGUILayout.Popup(new GUIContent("Autofocus Mode", "The default automatic focusing mode\nNormal: Focus on everything\nAvatar AF: Focus on avatars only\nSelfie AF: Focus on your face"), config.afModeIndex, afModeOptions);
             EditorGUILayout.PropertyField(_animLevel, new GUIContent("Virtual Horizon", "Turn the Electronic Level display on/off by default"));
             EditorGUILayout.PropertyField(_animGrid, new GUIContent("Grid", "Turn the rule-of-thirds grid on/off by default"));
-            EditorGUILayout.PropertyField(_animDirectStream, new GUIContent("DirectCast", "Turn DirectCast on/off by default\n(mode for high-performance streaming)\nNote: Post-processing is not captured"));
+            EditorGUILayout.PropertyField(_animDirectStream, new GUIContent("DirectCast", "Turn DirectCast on/off by default\n(mode for high-performance streaming)\n\nNote: DirectCast will take videos without Post-processing used in a world."));
 
             GuiLine();
             EditorGUILayout.LabelField("Advanced Settings（詳細設定）", EditorStyles.boldLabel);
@@ -309,7 +329,9 @@ The camera can be disabled without this button by holding the Enable button."));
                 EditorGUILayout.HelpBox("「Enable」を長押してカメラを無効します。\nHold \"Enable\" button to disable camera.", MessageType.Info);
             }
 
-            EditorGUILayout.PropertyField(_animLegacyStream, new GUIContent("Stream Camera support", @"Enable legacy support for VRChat Stream Camera for some performance cost when taking photos.
+            EditorGUILayout.PropertyField(_animLegacyStream, new GUIContent("Stream Camera support", @"Enabling this option will reduce performace.
+
+Enable legacy support for VRChat Stream Camera to allow for taking videos without using DirectCast.
 Useful when post-processing is a requirement for video recording.
 (Does not affect the performance of DirectCast)
 
@@ -382,18 +404,23 @@ No AA at 4K"), config.msaaIndex, msaaOptions);
             showConfigJson = EditorGUILayout.Foldout(showConfigJson, new GUIContent("Config.json Custom Resolution Settings"));
             if(showConfigJson)
             {
-                EditorGUILayout.HelpBox(@"Copy & Paste and save the following text as config.json
-and place it in VRChat's AppData folder.
-
-こちらの内容をコピペして「config.json」として保存してください。
-保存したらこのフォルダーに移動しましょう。", MessageType.None);
-                EditorGUILayout.TextField(System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\AppData\\LocalLow\\VRChat\\VRChat\\config.json");
-                EditorGUILayout.TextArea($@"{{
+                char ds = System.IO.Path.DirectorySeparatorChar;
+                string vrcDataPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + $"{ds}AppData{ds}LocalLow{ds}VRChat{ds}VRChat{ds}";
+                string configContents = $@"{{
     ""camera_res_height"": {config.customSensorRes.y},
     ""camera_res_width"": {config.customSensorRes.x},
     ""screenshot_res_height"": {config.customSensorRes.y},
     ""screenshot_res_width"": {config.customSensorRes.x}
-}}");
+}}";
+                EditorGUILayout.TextArea(configContents);
+                if(GUILayout.Button(new GUIContent("Save config.json...", "Save this custom config.json to VRChat data folder")))
+                {
+                    string fullPath = EditorUtility.SaveFilePanel("Save custom VRChat config.json", vrcDataPath, "config.json", "json");
+                    if(fullPath != "")
+                    {
+                        System.IO.File.WriteAllText(fullPath, configContents);
+                    }
+                }
             }
 
             if(config.sensorResIndex != 0)
@@ -404,11 +431,6 @@ and place it in VRChat's AppData folder.
             EditorGUIUtility.labelWidth -= 32;
 
             GuiLine();
-
-            if(!isPostAdd) // BACKWARD COMPATIBILITY
-            {
-                EnforceInspectorAdjustments(false);
-            }
 
             bool except = true;
             bool canFix = false;
@@ -428,6 +450,10 @@ and place it in VRChat's AppData folder.
             } else if(config.Avatar == null)
             {
                 EditorGUILayout.HelpBox("The avatar's animator component is missing.", MessageType.Error);
+            } else if(config.Avatar.transform.parent != null)
+            {
+                EditorGUILayout.HelpBox("The avatar cannot be a child of a GameObject.", MessageType.Error);
+                canFix = true;
             } else if(config.Avatar.transform.position != Vector3.zero || config.Avatar.transform.eulerAngles != Vector3.zero)
             {
                 EditorGUILayout.HelpBox("Please move the avatar to origin.", MessageType.Error);
@@ -511,16 +537,43 @@ The selected avatar has a setup that is incompatible with VRCLens. Please contac
             EditorGUI.BeginDisabledGroup(except);
             if(GUILayout.Button(new GUIContent("Apply VRCLens", "Automatically add or update VRCLens into the chosen avatar"), GUILayout.Height(27)))
             {
-                EditorUtility.DisplayProgressBar("VRCLens Setup", "Updating VRCLens from prefab", 0.0f);
-                try
+                bool avatarWD = config.ContainsWriteDefaults();
+                bool doApply = config.useWriteDefaults == avatarWD;
+                if(!doApply)
                 {
-                    config.RefreshAssetReserializeList();
-                    ApplySetup();
-                    ApplyAnimations();
-                    config.ReserializeAssetList();
-                } finally
+                    int ret = EditorUtility.DisplayDialogComplex("VRCLens",
+                        @"The Write Defaults setting is different from the avatar. This may cause animation issues on the avatar and VRCLens. Fix this before applying?
+
+Write Defaults設定がアバター環境とは異なっています。
+アバターとVRCLensに干渉が発生する可能性がある。
+訂正して適用してよろしいですか？", "Yes", "Cancel", "No");
+                    switch(ret)
+                    {
+                        case 0:
+                            _useWriteDefaults.boolValue = avatarWD;
+                            config.useWriteDefaults = avatarWD;
+                            doApply = true;
+                            break;
+                        case 1:
+                            break;
+                        case 2:
+                            doApply = true;
+                            break;
+                    }
+                }
+                if(doApply)
                 {
-                    EditorUtility.ClearProgressBar();
+                    EditorUtility.DisplayProgressBar("VRCLens Setup", "Updating VRCLens from prefab", 0.0f);
+                    try
+                    {
+                        config.RefreshAssetReserializeList();
+                        ApplySetup();
+                        ApplyAnimations();
+                        config.ReserializeAssetList();
+                    } finally
+                    {
+                        EditorUtility.ClearProgressBar();
+                    }
                 }
             }
             EditorGUI.EndDisabledGroup();

@@ -1,6 +1,6 @@
-VRCLens version 1.6.4 - Copyright (c) 2020-2021 Hirabiki. All rights reserved.
+VRCLens version 1.6.6 - Copyright (c) 2020-2021 Hirabiki. All rights reserved.
 
-DO NOT MOVE OR DELETE THIS FILE OTHERWISE SETUP WILL NOT WORK.
+DO NOT MOVE OR DELETE THIS FILE OTHERWISE SETUP MAY NOT WORK.
 必ずこのreadmeを移動、削除しないでください。
 
 Terms of Use／利用規約
@@ -24,7 +24,7 @@ Terms of Use／利用規約
 ---- Credits／権利関連 ----
 
 - Avatars 3.0 Manager (AnimatorCloner.cs)
-Copyright (c) 2020 VRLabs
+Copyright (c) 2020-2021 VRLabs
 MIT License. See LICENSE.txt in Lib folder
 
 - A portion of this package includes EVILS tone mapper used in Filament PBR engine
