@@ -441,6 +441,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1014868743}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &58635016 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8060075575179820680, guid: fd14c24b81fe11c4189041989bb32089,
+    type: 3}
+  m_PrefabInstance: {fileID: 1014868743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &58635017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,7 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ac8d30c6a0d9642a11e5be4c440740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Root: {fileID: 247947913}
+  m_Root: {fileID: 58635016}
   m_UpdateRate: 60
   m_Damping: 0.1
   m_DampingDistrib:
@@ -13119,7 +13125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ac8d30c6a0d9642a11e5be4c440740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Root: {fileID: 1165090894}
+  m_Root: {fileID: 247947913}
   m_UpdateRate: 60
   m_Damping: 0.1
   m_DampingDistrib:
@@ -20946,6 +20952,7 @@ GameObject:
   - component: {fileID: 1170010142}
   - component: {fileID: 1170010141}
   - component: {fileID: 1170010143}
+  - component: {fileID: 1170010144}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -21103,7 +21110,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -21661,7 +21668,7 @@ ParticleSystem:
     angle: 0
     length: 0.85
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -22751,7 +22758,7 @@ ParticleSystem:
     orbitalZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.12
+      scalar: -1.77
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -25704,7 +25711,7 @@ AudioSource:
   m_Pitch: 1
   Loop: 1
   Mute: 0
-  Spatialize: 0
+  Spatialize: 1
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
@@ -25784,6 +25791,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1170010144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170010139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1610797297, guid: 67cc4cb7839cd3741b63733d5adf0442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Gain: 10
+  Far: 40
+  Near: 0
+  VolumetricRadius: 0
+  EnableSpatialization: 1
+  UseAudioSourceVolumeCurve: 1
 --- !u!1 &1175300884
 GameObject:
   m_ObjectHideFlags: 0
