@@ -1,4 +1,4 @@
-Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
+Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/SantaHatDiffuse-SantaHatDiffuse"
 {
     Properties
     {
@@ -1243,7 +1243,6 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_MAINTEX
 #define PROP_MAINTEXTUREUV 0
 #define PROP_MAINEMISSIONSTRENGTH 0
-#define PROP_BUMPMAP
 #define PROP_BUMPMAPUV 0
 #define PROP_BUMPSCALE 1
 #define PROP_CLIPPINGMASKUV 0
@@ -1306,7 +1305,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_FORCEOPAQUE 0
 #define PROP_MAINSHADOWCLIPMOD 0
 #define PROP_ALPHATOMASK 0
-#define PROP_MAINALPHATOCOVERAGE 1
+#define PROP_MAINALPHATOCOVERAGE 0
 #define PROP_MAINMIPSCALE 0.25
 #define PROP_ALPHAPREMULTIPLY 0
 #define PROP_ALPHAMOD 0
@@ -1429,7 +1428,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_LIGHTINGGRADIENTEND 0.5
 #define PROP_SSSSCALE 1
 #define PROP_SSSBUMPBLUR 0.7
-#define PROP_SHADOWSTRENGTH 0.2
+#define PROP_SHADOWSTRENGTH 1
 #define PROP_ATTENUATIONMULTIPLIER 0
 #define PROP_LIGHTINGIGNOREAMBIENTCOLOR 0
 #define PROPM_START_LIGHTINGMODIFIERS 0
@@ -1474,9 +1473,9 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_ENABLESSS 0
 #define PROP_SSSTHICKNESSMAPUV 0
 #define PROP_SSSTHICKNESSMOD 0
-#define PROP_SSSSCALE 0
-#define PROP_SSSPOWER 1
-#define PROP_SSSDISTORTION 0
+#define PROP_SSSSCALE 0.25
+#define PROP_SSSPOWER 5
+#define PROP_SSSDISTORTION 1
 #define PROPM_END_SUBSURFACE 0
 #define PROPM_START_RIMLIGHTOPTIONS 0
 #define PROP_ENABLERIMLIGHTING 0
@@ -1486,7 +1485,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_RIMSHARPNESS 0.25
 #define PROP_RIMSTRENGTH 0
 #define PROP_RIMBRIGHTEN 0
-#define PROP_RIMLIGHTCOLORBIAS 0
+#define PROP_RIMLIGHTCOLORBIAS 1
 #define PROP_RIMTEXUV 0
 #define PROP_RIMMASKUV 0
 #define PROPM_START_RIMHUESHIFT 0
@@ -1662,6 +1661,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROPM_START_EMISSIONOPTIONS 1
 #define PROP_ENABLEEMISSION 1
 #define PROP_EMISSIONREPLACE 0
+#define PROP_EMISSIONMAP
 #define PROP_EMISSIONBASECOLORASMAP 0
 #define PROP_EMISSIONMAPUV 0
 #define PROP_EMISSIONMASKUV 0
@@ -1683,7 +1683,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROPM_END_GLOWINDARKEMISSIONOPTIONS 0
 #define PROPM_START_BLINKINGEMISSIONOPTIONS 0
 #define PROP_EMISSIONBLINKINGENABLED 0
-#define PROP_EMISSIVEBLINK_MIN 1
+#define PROP_EMISSIVEBLINK_MIN 0
 #define PROP_EMISSIVEBLINK_MAX 1
 #define PROP_EMISSIVEBLINK_VELOCITY 4
 #define PROP_EMISSIONBLINKINGOFFSET 0
@@ -2163,7 +2163,6 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_MAINTEX
 #define PROP_MAINTEXTUREUV 0
 #define PROP_MAINEMISSIONSTRENGTH 0
-#define PROP_BUMPMAP
 #define PROP_BUMPMAPUV 0
 #define PROP_BUMPSCALE 1
 #define PROP_CLIPPINGMASKUV 0
@@ -2226,7 +2225,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_FORCEOPAQUE 0
 #define PROP_MAINSHADOWCLIPMOD 0
 #define PROP_ALPHATOMASK 0
-#define PROP_MAINALPHATOCOVERAGE 1
+#define PROP_MAINALPHATOCOVERAGE 0
 #define PROP_MAINMIPSCALE 0.25
 #define PROP_ALPHAPREMULTIPLY 0
 #define PROP_ALPHAMOD 0
@@ -2349,7 +2348,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_LIGHTINGGRADIENTEND 0.5
 #define PROP_SSSSCALE 1
 #define PROP_SSSBUMPBLUR 0.7
-#define PROP_SHADOWSTRENGTH 0.2
+#define PROP_SHADOWSTRENGTH 1
 #define PROP_ATTENUATIONMULTIPLIER 0
 #define PROP_LIGHTINGIGNOREAMBIENTCOLOR 0
 #define PROPM_START_LIGHTINGMODIFIERS 0
@@ -2394,9 +2393,9 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_ENABLESSS 0
 #define PROP_SSSTHICKNESSMAPUV 0
 #define PROP_SSSTHICKNESSMOD 0
-#define PROP_SSSSCALE 0
-#define PROP_SSSPOWER 1
-#define PROP_SSSDISTORTION 0
+#define PROP_SSSSCALE 0.25
+#define PROP_SSSPOWER 5
+#define PROP_SSSDISTORTION 1
 #define PROPM_END_SUBSURFACE 0
 #define PROPM_START_RIMLIGHTOPTIONS 0
 #define PROP_ENABLERIMLIGHTING 0
@@ -2406,7 +2405,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_RIMSHARPNESS 0.25
 #define PROP_RIMSTRENGTH 0
 #define PROP_RIMBRIGHTEN 0
-#define PROP_RIMLIGHTCOLORBIAS 0
+#define PROP_RIMLIGHTCOLORBIAS 1
 #define PROP_RIMTEXUV 0
 #define PROP_RIMMASKUV 0
 #define PROPM_START_RIMHUESHIFT 0
@@ -2582,6 +2581,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROPM_START_EMISSIONOPTIONS 1
 #define PROP_ENABLEEMISSION 1
 #define PROP_EMISSIONREPLACE 0
+#define PROP_EMISSIONMAP
 #define PROP_EMISSIONBASECOLORASMAP 0
 #define PROP_EMISSIONMAPUV 0
 #define PROP_EMISSIONMASKUV 0
@@ -2603,7 +2603,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROPM_END_GLOWINDARKEMISSIONOPTIONS 0
 #define PROPM_START_BLINKINGEMISSIONOPTIONS 0
 #define PROP_EMISSIONBLINKINGENABLED 0
-#define PROP_EMISSIVEBLINK_MIN 1
+#define PROP_EMISSIVEBLINK_MIN 0
 #define PROP_EMISSIVEBLINK_MAX 1
 #define PROP_EMISSIVEBLINK_VELOCITY 4
 #define PROP_EMISSIONBLINKINGOFFSET 0
@@ -3079,7 +3079,6 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_MAINTEX
 #define PROP_MAINTEXTUREUV 0
 #define PROP_MAINEMISSIONSTRENGTH 0
-#define PROP_BUMPMAP
 #define PROP_BUMPMAPUV 0
 #define PROP_BUMPSCALE 1
 #define PROP_CLIPPINGMASKUV 0
@@ -3142,7 +3141,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_FORCEOPAQUE 0
 #define PROP_MAINSHADOWCLIPMOD 0
 #define PROP_ALPHATOMASK 0
-#define PROP_MAINALPHATOCOVERAGE 1
+#define PROP_MAINALPHATOCOVERAGE 0
 #define PROP_MAINMIPSCALE 0.25
 #define PROP_ALPHAPREMULTIPLY 0
 #define PROP_ALPHAMOD 0
@@ -3265,7 +3264,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_LIGHTINGGRADIENTEND 0.5
 #define PROP_SSSSCALE 1
 #define PROP_SSSBUMPBLUR 0.7
-#define PROP_SHADOWSTRENGTH 0.2
+#define PROP_SHADOWSTRENGTH 1
 #define PROP_ATTENUATIONMULTIPLIER 0
 #define PROP_LIGHTINGIGNOREAMBIENTCOLOR 0
 #define PROPM_START_LIGHTINGMODIFIERS 0
@@ -3310,9 +3309,9 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_ENABLESSS 0
 #define PROP_SSSTHICKNESSMAPUV 0
 #define PROP_SSSTHICKNESSMOD 0
-#define PROP_SSSSCALE 0
-#define PROP_SSSPOWER 1
-#define PROP_SSSDISTORTION 0
+#define PROP_SSSSCALE 0.25
+#define PROP_SSSPOWER 5
+#define PROP_SSSDISTORTION 1
 #define PROPM_END_SUBSURFACE 0
 #define PROPM_START_RIMLIGHTOPTIONS 0
 #define PROP_ENABLERIMLIGHTING 0
@@ -3322,7 +3321,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_RIMSHARPNESS 0.25
 #define PROP_RIMSTRENGTH 0
 #define PROP_RIMBRIGHTEN 0
-#define PROP_RIMLIGHTCOLORBIAS 0
+#define PROP_RIMLIGHTCOLORBIAS 1
 #define PROP_RIMTEXUV 0
 #define PROP_RIMMASKUV 0
 #define PROPM_START_RIMHUESHIFT 0
@@ -3498,6 +3497,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROPM_START_EMISSIONOPTIONS 1
 #define PROP_ENABLEEMISSION 1
 #define PROP_EMISSIONREPLACE 0
+#define PROP_EMISSIONMAP
 #define PROP_EMISSIONBASECOLORASMAP 0
 #define PROP_EMISSIONMAPUV 0
 #define PROP_EMISSIONMASKUV 0
@@ -3519,7 +3519,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROPM_END_GLOWINDARKEMISSIONOPTIONS 0
 #define PROPM_START_BLINKINGEMISSIONOPTIONS 0
 #define PROP_EMISSIONBLINKINGENABLED 0
-#define PROP_EMISSIVEBLINK_MIN 1
+#define PROP_EMISSIVEBLINK_MIN 0
 #define PROP_EMISSIVEBLINK_MAX 1
 #define PROP_EMISSIVEBLINK_VELOCITY 4
 #define PROP_EMISSIONBLINKINGOFFSET 0
@@ -3980,7 +3980,6 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_MAINTEX
 #define PROP_MAINTEXTUREUV 0
 #define PROP_MAINEMISSIONSTRENGTH 0
-#define PROP_BUMPMAP
 #define PROP_BUMPMAPUV 0
 #define PROP_BUMPSCALE 1
 #define PROP_CLIPPINGMASKUV 0
@@ -4043,7 +4042,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_FORCEOPAQUE 0
 #define PROP_MAINSHADOWCLIPMOD 0
 #define PROP_ALPHATOMASK 0
-#define PROP_MAINALPHATOCOVERAGE 1
+#define PROP_MAINALPHATOCOVERAGE 0
 #define PROP_MAINMIPSCALE 0.25
 #define PROP_ALPHAPREMULTIPLY 0
 #define PROP_ALPHAMOD 0
@@ -4166,7 +4165,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_LIGHTINGGRADIENTEND 0.5
 #define PROP_SSSSCALE 1
 #define PROP_SSSBUMPBLUR 0.7
-#define PROP_SHADOWSTRENGTH 0.2
+#define PROP_SHADOWSTRENGTH 1
 #define PROP_ATTENUATIONMULTIPLIER 0
 #define PROP_LIGHTINGIGNOREAMBIENTCOLOR 0
 #define PROPM_START_LIGHTINGMODIFIERS 0
@@ -4211,9 +4210,9 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_ENABLESSS 0
 #define PROP_SSSTHICKNESSMAPUV 0
 #define PROP_SSSTHICKNESSMOD 0
-#define PROP_SSSSCALE 0
-#define PROP_SSSPOWER 1
-#define PROP_SSSDISTORTION 0
+#define PROP_SSSSCALE 0.25
+#define PROP_SSSPOWER 5
+#define PROP_SSSDISTORTION 1
 #define PROPM_END_SUBSURFACE 0
 #define PROPM_START_RIMLIGHTOPTIONS 0
 #define PROP_ENABLERIMLIGHTING 0
@@ -4223,7 +4222,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROP_RIMSHARPNESS 0.25
 #define PROP_RIMSTRENGTH 0
 #define PROP_RIMBRIGHTEN 0
-#define PROP_RIMLIGHTCOLORBIAS 0
+#define PROP_RIMLIGHTCOLORBIAS 1
 #define PROP_RIMTEXUV 0
 #define PROP_RIMMASKUV 0
 #define PROPM_START_RIMHUESHIFT 0
@@ -4399,6 +4398,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROPM_START_EMISSIONOPTIONS 1
 #define PROP_ENABLEEMISSION 1
 #define PROP_EMISSIONREPLACE 0
+#define PROP_EMISSIONMAP
 #define PROP_EMISSIONBASECOLORASMAP 0
 #define PROP_EMISSIONMAPUV 0
 #define PROP_EMISSIONMASKUV 0
@@ -4420,7 +4420,7 @@ Shader "Hidden/Locked/.poiyomi/• Poiyomi Toon •/Cape_Diffuse-Cape_Diffuse"
 #define PROPM_END_GLOWINDARKEMISSIONOPTIONS 0
 #define PROPM_START_BLINKINGEMISSIONOPTIONS 0
 #define PROP_EMISSIONBLINKINGENABLED 0
-#define PROP_EMISSIVEBLINK_MIN 1
+#define PROP_EMISSIVEBLINK_MIN 0
 #define PROP_EMISSIVEBLINK_MAX 1
 #define PROP_EMISSIVEBLINK_VELOCITY 4
 #define PROP_EMISSIONBLINKINGOFFSET 0

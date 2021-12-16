@@ -7,17 +7,16 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cape_Diffuse
-  m_Shader: {fileID: 4800000, guid: 97c48ff50cff94c49a8ce66092bc0af2, type: 3}
-  m_ShaderKeywords: 
+  m_Name: ChristmasCape
+  m_Shader: {fileID: 4800000, guid: 0b7113dea2069fc4e8943843eff19f70, type: 3}
+  m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2010
+  m_CustomRenderQueue: -1
   stringTagMap:
     OptimizedShaderFolder: Cape_Diffuse
     OriginalShader: ".poiyomi/\u2022 Poiyomi Toon \u2022"
-    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -1464,7 +1463,7 @@ Material:
     - _DistortionStrengthAudioLink: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionCenterOutAddAudioLink: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionCenterOutAddAudioLink1: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 0.5471698, g: 0, b: 0.005469214, a: 1}
+    - _EmissionColor: {r: 0.7264151, g: 0.0034264945, b: 0.026054364, a: 1}
     - _EmissionColor1: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionMap1Pan: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionMapPan: {r: 0, g: 0, b: 0, a: 0}

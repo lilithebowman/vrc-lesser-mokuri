@@ -147,14 +147,14 @@ float3 calculateEmissionNew(in float3 baseColor, inout float4 finalColor)
         
         if (!float(0))
         {
-            emissionColor0 = POI2D_SAMPLER_PAN(_EmissionMap, _MainTex, poiMesh.uv[float(0)], float4(0,0,0,0)).rgb * lerp(1, baseColor, float(0)).rgb * float4(0.5471698,0,0.005469214,1).rgb;
+            emissionColor0 = POI2D_SAMPLER_PAN(_EmissionMap, _MainTex, poiMesh.uv[float(0)], float4(0,0,0,0)).rgb * lerp(1, baseColor, float(0)).rgb * float4(1,1,1,1).rgb;
         }
         else
         {
-            emissionColor0 = UNITY_SAMPLE_TEX2D_SAMPLER(_EmissionMap, _MainTex, ((.5 + poiLight.nDotV * .5) * float4(20,20,0,0).xy) + _Time.x * float(5)).rgb * lerp(1, baseColor, float(0)).rgb * float4(0.5471698,0,0.005469214,1).rgb;
+            emissionColor0 = UNITY_SAMPLE_TEX2D_SAMPLER(_EmissionMap, _MainTex, ((.5 + poiLight.nDotV * .5) * float4(1,1,0,0).xy) + _Time.x * float(5)).rgb * lerp(1, baseColor, float(0)).rgb * float4(1,1,1,1).rgb;
         }
     #else
-        emissionColor0 = lerp(1, baseColor, float(0)).rgb * float4(0.5471698,0,0.005469214,1).rgb;
+        emissionColor0 = lerp(1, baseColor, float(0)).rgb * float4(1,1,1,1).rgb;
     #endif
     
     if (float(0))
@@ -180,7 +180,7 @@ float3 calculateEmissionNew(in float3 baseColor, inout float4 finalColor)
     
     if (float(0))
     {
-        emissionStrength0 *= calculateBlinkingEmission(float(1), float(1), float(4), float(0));
+        emissionStrength0 *= calculateBlinkingEmission(float(0), float(1), float(4), float(0));
     }
     emissionColor0 = hueShift(emissionColor0, frac(float(1) + float(0.1) * _Time.x) * float(0));
     #if defined(PROP_EMISSIONMASK) || !defined(OPTIMIZER_ENABLED)
