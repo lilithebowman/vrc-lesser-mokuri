@@ -8,12 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PropMofFluffy 1
-  m_Shader: {fileID: 4800000, guid: 19d7c61783c14d9498436292a1b17dd0, type: 3}
+  m_Shader: {fileID: 4800000, guid: 3a74f10861cf4644cb585676682180ed, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -31,6 +31,14 @@ Material:
         m_Texture: {fileID: 2800000, guid: 50468183d9525f2489f8bc788b779082, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _ClipMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClipMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _CutoutMap:
         m_Texture: {fileID: 2800000, guid: 3f74b7d5ce0c0bf408f768d67b1ac1ce, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -44,6 +52,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DissolveTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -84,6 +96,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GlossTexture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _HSVMask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -171,6 +187,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _RimMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _RimTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -248,20 +268,37 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _ALGradientOnBlue: 0
+    - _ALGradientOnGreen: 0
+    - _ALGradientOnRed: 0
+    - _ALUVWidth: 128
     - _AdvMode: 0
+    - _AlphaToMask: 0
     - _AnisotropicAX: 0.25
     - _AnisotropicAY: 0.75
+    - _AnisotropicReflection: 0
+    - _AnisotropicSpecular: 0
+    - _BlendMode: 0
     - _BumpMapUV: 0
     - _BumpScale: 1
     - _ClearCoat: 0
     - _ClearcoatSmoothness: 0.8
     - _ClearcoatStrength: 1
+    - _ClipIndex: 0
     - _Culling: 2
     - _CustomShadow2nd: 0
     - _Cutoff: 0.5
     - _Cutout: 0.065
     - _CutoutCutoutAdjust: 0.5
     - _DetailNormalMapScale: 1
+    - _DissolveBlendPower: 1
+    - _DissolveCoordinates: 0
+    - _DissolveLayer1Scale: 1
+    - _DissolveLayer1Speed: 0
+    - _DissolveLayer2Scale: 0.5
+    - _DissolveLayer2Speed: 0
+    - _DissolveProgress: 0
+    - _DissolveStrength: 1
     - _DoubleSidedBackfaceHueShiftFromBase: 0
     - _DoubleSidedBackfaceLightIntensity: 0.5
     - _DoubleSidedBackfaceSaturationFromBase: 1
@@ -270,6 +307,7 @@ Material:
     - _DoubleSidedFlipBackfaceNormal: 0
     - _DstBlend: 0
     - _Emission2MapUV: 0
+    - _EmissionAudioLinkChannel: 0
     - _EmissionMapUV: 0
     - _EmissionParallaxDepth: 0
     - _EmissionParallaxDepthMaskInvert: 0
@@ -278,6 +316,8 @@ Material:
     - _EmissionParallaxTexUV: 0
     - _EmissionToDiffuse: 0
     - _EnableEmission: 0
+    - _FadeDither: 0
+    - _FadeDitherDistance: 0
     - _GlossBlend: 0.5
     - _GlossBlendMaskUV: 0
     - _GlossMapScale: 1
@@ -291,6 +331,8 @@ Material:
     - _HalftoneLineAmount: 2000
     - _HalftoneLineIntensity: 1
     - _HalftoneType: 3
+    - _Hue: 0
+    - _IOR: 0
     - _LightColorSaturation: 1
     - _LightColorSaturationMaskUV: 0
     - _LightSampling: 0
@@ -304,6 +346,9 @@ Material:
     - _MatcapTintToDiffuse: 0
     - _Metallic: 1
     - _Mode: 0
+    - _NormalMapMode: 0
+    - _OcclusionIntensity: 1
+    - _OcclusionMode: 0
     - _OcclusionStrength: 1
     - _OtherShadowAdjust: -0.1
     - _OtherShadowBorderSharpness: 3
@@ -312,10 +357,12 @@ Material:
     - _OutlineHueShiftFromBase: 0
     - _OutlineLighting: 0
     - _OutlineMaskUV: 0
+    - _OutlineNormalMode: 0
     - _OutlineSaturationFromBase: 1
     - _OutlineShadeMix: 0
     - _OutlineTextureColorRate: 0.05
     - _OutlineTextureUV: 0
+    - _OutlineUVSelect: 2
     - _OutlineUseColorShift: 0
     - _OutlineValueFromBase: 1
     - _OutlineWidth: 0.1
@@ -397,6 +444,7 @@ Material:
     - _SpecularArea: 0.5
     - _SpecularHighlights: 1
     - _SpecularIntensity: 0
+    - _SpecularSharpness: 0
     - _SpecularStyle: 0
     - _SrcBlend: 1
     - _Stencil: 0
@@ -410,15 +458,19 @@ Material:
     - _UVSec: 0
     - _UVSet: 0
     - _UVSetAlbedo: 0
+    - _UVSetClipMap: 0
     - _UVSetDetMask: 0
     - _UVSetDetNormal: 0
+    - _UVSetDissolve: 0
     - _UVSetEmission: 0
     - _UVSetMetallic: 0
     - _UVSetNormal: 0
     - _UVSetOcclusion: 0
     - _UVSetReflectivity: 0
+    - _UVSetRimMask: 0
     - _UVSetSpecular: 0
     - _UVSetThickness: 0
+    - _UseClipsForDissolve: 0
     - _UseDoubleSided: 0
     - _UseEmissionParallax: 0
     - _UseGloss: 0
@@ -434,6 +486,7 @@ Material:
     - _UseTransformUVRotate: 0
     - _UseTransformUVScroll: 0
     - _UseVertexLight: 1
+    - _Value: 1
     - _Version: 1026
     - _VertexColorAlbedo: 0
     - _VertexColorBlendDiffuse: 0
@@ -441,6 +494,7 @@ Material:
     - _WindAmplitude: 0
     - _WindDistribution: 0
     - _WindFrequency: 0
+    - _WireWidth: 0
     - _ZWrite: 1
     - _density: 24
     - _fakeLight: 0
@@ -452,11 +506,32 @@ Material:
     - _x: -0.04
     - _y: 0.31
     m_Colors:
+    - _ClipAgainstVertexColorGreaterZeroFive: {r: 1, g: 1, b: 1, a: 1}
+    - _ClipAgainstVertexColorLessZeroFive: {r: 1, g: 1, b: 1, a: 1}
+    - _ClipSlider00: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider01: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider02: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider03: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider04: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider05: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider06: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider07: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider08: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider09: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider10: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider11: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider12: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider13: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider14: {r: 0, g: 0, b: 0, a: 0}
+    - _ClipSlider15: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color2: {r: 1, g: 1, b: 1, a: 1}
     - _Color3: {r: 1, g: 1, b: 1, a: 1}
+    - _DissolveColor: {r: 1, g: 1, b: 1, a: 1}
     - _Emission2Color: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor0: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionColor1: {r: 0, g: 0, b: 0, a: 0}
     - _EmissionColor2: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionParallaxColor: {r: 1, g: 1, b: 1, a: 1}
     - _GlossColor: {r: 1, g: 1, b: 1, a: 1}
@@ -470,4 +545,5 @@ Material:
     - _ShadowPlanB2CustomShadowTextureRGB: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowPlanBCustomShadowTextureRGB: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowRim: {r: 1, g: 1, b: 1, a: 1}
+    - _WireColor: {r: 0, g: 0, b: 0, a: 0}
     - _fakeLightDir: {r: 0, g: 0, b: 0, a: 1}
