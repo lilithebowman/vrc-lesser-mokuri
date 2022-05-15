@@ -13,31 +13,31 @@ MonoBehaviour:
   m_Name: Lil_Bunn_ExpressionParameters
   m_EditorClassIdentifier: 
   parameters:
-  - name: Yukata
-    valueType: 2
-    saved: 1
+  - name: VRCEmote
+    valueType: 0
+    saved: 0
     defaultValue: 0
-  - name: Scared
-    valueType: 2
-    saved: 1
+  - name: VRCEmoteDefault
+    valueType: 0
+    saved: 0
     defaultValue: 0
-  - name: Unimpressed
-    valueType: 2
-    saved: 1
+  - name: VRCEmoteBB
+    valueType: 0
+    saved: 0
     defaultValue: 0
-  - name: Tired
-    valueType: 2
-    saved: 1
-    defaultValue: 0
-  - name: VRCLFeatureToggle
+  - name: SignToggle
     valueType: 0
     saved: 0
     defaultValue: 0
   - name: VRCFaceBlendH
     valueType: 1
-    saved: 0
+    saved: 1
     defaultValue: 0
   - name: VRCFaceBlendV
     valueType: 1
+    saved: 1
+    defaultValue: 0
+  - name: VRCLFeatureToggle
+    valueType: 0
     saved: 0
     defaultValue: 0

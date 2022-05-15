@@ -15,7 +15,7 @@ MonoBehaviour:
   controls:
   - name: Wave
     icon: {fileID: 2800000, guid: 5acca5d9b1a37724880f1a1dc1bc54d3, type: 3}
-    type: 102
+    type: 101
     parameter:
       name: VRCEmote
     value: 1
